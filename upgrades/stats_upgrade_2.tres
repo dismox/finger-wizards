@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=4 format=3 uid="uid://8lk3vu01mxqf"]
+
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_fvbfg"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_essdq"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_disac"]
+
+[resource]
+script = ExtResource("2_essdq")
+title = "Балансировка"
+description = "+50% скорострельность
+-25% урон"
+damage_pct = -25.0
+fire_rate_pct = 50.0
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

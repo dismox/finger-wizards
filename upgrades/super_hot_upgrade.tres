@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=6 format=3 uid="uid://qwuo5qfnjx3u"]
+
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_5vs72"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_oj02u"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_awoic"]
+[ext_resource type="Script" uid="uid://bpwe2voeatu7v" path="res://modifiers/trajectory_modifiers/trajectory_player_move.gd" id="4_oj02u"]
+
+[sub_resource type="Resource" id="Resource_awoic"]
+script = ExtResource("4_oj02u")
+metadata/_custom_type_script = "uid://bpwe2voeatu7v"
+
+[resource]
+script = ExtResource("2_oj02u")
+title = "SUPER HOT"
+description = "Снаряды останавливаются пока вы не двигаетесь"
+trajectory_modifiers = Array[ExtResource("3_awoic")]([SubResource("Resource_awoic")])
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

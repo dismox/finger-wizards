@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=6 format=3 uid="uid://bn7ehmi7ctnqc"]
+
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_7yhep"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_u6dpg"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_g82k5"]
+[ext_resource type="Script" uid="uid://dnq4pvo6rae45" path="res://modifiers/trajectory_modifiers/trajectory_zigzag.gd" id="4_u6dpg"]
+
+[sub_resource type="Resource" id="Resource_g82k5"]
+script = ExtResource("4_u6dpg")
+metadata/_custom_type_script = "uid://dnq4pvo6rae45"
+
+[resource]
+script = ExtResource("2_u6dpg")
+title = "Зиг-Заг"
+description = "Снярды движутся зиг-загом
++25% дальность
+-10% скорость снарядов"
+trajectory_modifiers = Array[ExtResource("3_g82k5")]([SubResource("Resource_g82k5")])
+speed_pct = -10.0
+range_pct = 25.0
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

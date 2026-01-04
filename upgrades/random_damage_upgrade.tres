@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=6 format=3 uid="uid://dktm7xv0llyqu"]
+
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_givk8"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_07ogx"]
+[ext_resource type="Script" uid="uid://d27a0bd3kntuo" path="res://objects/bullet_perks/random_damage_increasing_perk.gd" id="2_wo5sm"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_wo5sm"]
+
+[sub_resource type="Resource" id="Resource_4imxm"]
+script = ExtResource("2_wo5sm")
+metadata/_custom_type_script = "uid://d27a0bd3kntuo"
+
+[resource]
+script = ExtResource("2_07ogx")
+title = "Задержка урона"
+description = "каждый выстрел имеет шанс 1% усилить снаряд на 1, при неудаче шанс и усиление увеличивается на 1
++50% скорострельности"
+perks = Array[ExtResource("1_givk8")]([SubResource("Resource_4imxm")])
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

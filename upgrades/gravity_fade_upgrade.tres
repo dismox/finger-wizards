@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=6 format=3 uid="uid://pj8w51dk6lwx"]
+
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_25p1t"]
+[ext_resource type="Script" uid="uid://dbohx5di8d2nb" path="res://objects/bullet_perks/fade_gravity_perk.gd" id="2_5fq6o"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_6xcrm"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_5fq6o"]
+
+[sub_resource type="Resource" id="Resource_0u01i"]
+script = ExtResource("2_5fq6o")
+metadata/_custom_type_script = "uid://dbohx5di8d2nb"
+
+[resource]
+script = ExtResource("2_6xcrm")
+title = "Притягивающее падение"
+description = "При затухании снаряда он стягивает ближайших существ к себе
++25% урон
+-50% дальность"
+perks = Array[ExtResource("1_25p1t")]([SubResource("Resource_0u01i")])
+damage_pct = 25.0
+fire_rate_pct = -50.0
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

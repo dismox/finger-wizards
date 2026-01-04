@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://coc0jp46lbrjn"]
+
+[ext_resource type="PackedScene" uid="uid://c7cfhsxstxnnt" path="res://global/upgrade_panel.tscn" id="1_0bscc"]
+[ext_resource type="Theme" uid="uid://r3yp6lnnqb2o" path="res://misc/main_theme.tres" id="2_6tkp7"]
+
+[node name="UpgradesChoise" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 623.0
+offset_bottom = 364.0
+
+[node name="LeftUpgradePanel" parent="." instance=ExtResource("1_0bscc")]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 42.0
+offset_right = 274.0
+offset_bottom = 284.0
+hand = "left"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 287.0
+offset_right = 247.0
+offset_bottom = 305.0
+theme = ExtResource("2_6tkp7")
+text = "Для левой руки"
+horizontal_alignment = 1
+
+[node name="RightUpgradePanel" parent="." instance=ExtResource("1_0bscc")]
+layout_mode = 0
+offset_left = 345.0
+offset_top = 40.0
+offset_right = 507.0
+offset_bottom = 282.0
+hand = "right"
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 287.0
+offset_right = 480.0
+offset_bottom = 305.0
+theme = ExtResource("2_6tkp7")
+text = "Для правой руки"
+horizontal_alignment = 1

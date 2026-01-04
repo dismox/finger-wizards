@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=6 format=3 uid="uid://cmoe5k0mlsc4f"]
+
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_2yw7u"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_j5daq"]
+[ext_resource type="Script" uid="uid://cbyk0e1721vlu" path="res://objects/bullet_perks/bounce_on_hit_perk.gd" id="2_pgdxi"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_pgdxi"]
+
+[sub_resource type="Resource" id="Resource_7esuj"]
+script = ExtResource("2_pgdxi")
+metadata/_custom_type_script = "uid://cbyk0e1721vlu"
+
+[resource]
+script = ExtResource("2_j5daq")
+title = "Рикошет"
+description = "Снаряды отлетают от врагов
++50% дальность"
+perks = Array[ExtResource("1_2yw7u")]([SubResource("Resource_7esuj")])
+range_pct = 50.0
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

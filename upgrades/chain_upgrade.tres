@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=8 format=3 uid="uid://beve1wu4xbpt5"]
+
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_82wyr"]
+[ext_resource type="Script" uid="uid://v3oqfp7ck0gv" path="res://objects/bullet_perks/chain_perk.gd" id="2_5wpes"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_wje0y"]
+[ext_resource type="Script" uid="uid://dhuywet3f5csm" path="res://objects/bullet_perks/piercing_perk.gd" id="3_0trh0"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_5wpes"]
+
+[sub_resource type="Resource" id="Resource_ie37e"]
+script = ExtResource("2_5wpes")
+metadata/_custom_type_script = "uid://v3oqfp7ck0gv"
+
+[sub_resource type="Resource" id="Resource_kefi5"]
+script = ExtResource("3_0trh0")
+metadata/_custom_type_script = "uid://dhuywet3f5csm"
+
+[resource]
+script = ExtResource("2_wje0y")
+title = "Цепная реакция"
+description = "Снаряды по цепочке летят в сторну близжайшего врага
++50% дальность"
+perks = Array[ExtResource("1_82wyr")]([SubResource("Resource_ie37e"), SubResource("Resource_kefi5")])
+range_pct = 50.0
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=6 format=3 uid="uid://dckkwhouwnedj"]
+
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_vrxbv"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_8126f"]
+[ext_resource type="Script" uid="uid://4rmxm2eyqmo5" path="res://objects/bullet_perks/merge_perk.gd" id="2_gwu2x"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_gwu2x"]
+
+[sub_resource type="Resource" id="Resource_kgwif"]
+script = ExtResource("2_gwu2x")
+metadata/_custom_type_script = "uid://4rmxm2eyqmo5"
+
+[resource]
+script = ExtResource("2_8126f")
+title = "Слияние"
+description = "Снаряды поглащают другие снаряды совмещая урон
+-25% скорость снарядов
++10% скорострельность"
+perks = Array[ExtResource("1_vrxbv")]([SubResource("Resource_kgwif")])
+speed_pct = -25.0
+fire_rate_pct = 10.0
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

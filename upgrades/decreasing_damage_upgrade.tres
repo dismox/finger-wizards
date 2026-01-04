@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=6 format=3 uid="uid://bfq1jj45ru5h6"]
+
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_ujikx"]
+[ext_resource type="Script" uid="uid://d137cran0rsth" path="res://objects/bullet_perks/decreasing_damage_on_flight_perk.gd" id="2_j4ke0"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_xwarf"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_j4ke0"]
+
+[sub_resource type="Resource" id="Resource_4x8hm"]
+script = ExtResource("2_j4ke0")
+metadata/_custom_type_script = "uid://d137cran0rsth"
+
+[resource]
+script = ExtResource("2_xwarf")
+title = "Затухание"
+description = "Во время полетов у снарядов снижается урон
++100% урон
+"
+perks = Array[ExtResource("1_ujikx")]([SubResource("Resource_4x8hm")])
+damage_pct = 100.0
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

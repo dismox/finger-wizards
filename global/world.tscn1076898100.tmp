@@ -1,0 +1,207 @@
+[gd_scene load_steps=17 format=3 uid="uid://cmbakut8gi6wr"]
+
+[ext_resource type="Script" uid="uid://c6a1khvjfi5gs" path="res://global/game.gd" id="1_0u0vk"]
+[ext_resource type="Script" uid="uid://bfr51lbfudv54" path="res://global/world.gd" id="1_a6aj0"]
+[ext_resource type="Script" uid="uid://b0p455xgsiaq0" path="res://global/ui_control.gd" id="1_fv8ub"]
+[ext_resource type="Texture2D" uid="uid://cd21iy4016am1" path="res://assets/floor.png" id="2_plbpi"]
+[ext_resource type="PackedScene" uid="uid://bnk8kse82y108" path="res://objects/entities/player/player.tscn" id="3_k8ptx"]
+[ext_resource type="Texture2D" uid="uid://e0oaaff1spe5" path="res://assets/cursor.png" id="4_kshyb"]
+[ext_resource type="Script" uid="uid://gwa3tv76fdot" path="res://global/cursor.gd" id="5_7n4u8"]
+[ext_resource type="Shader" uid="uid://b0hoy44a4u6hu" path="res://global/liquid_progressbar.gdshader" id="6_fv8ub"]
+[ext_resource type="Texture2D" uid="uid://dsymd1s6pilcv" path="res://icon.svg" id="7_xn7c1"]
+[ext_resource type="PackedScene" uid="uid://cls1xxbi7k5ex" path="res://objects/entities/enemies/slime/slime.tscn" id="8_0u0vk"]
+[ext_resource type="Texture2D" uid="uid://dm0p34yfiuq3v" path="res://assets/manabar_under.png" id="10_kshyb"]
+[ext_resource type="Texture2D" uid="uid://vgaa6oy3ww1s" path="res://assets/manabar_progress.png" id="11_7n4u8"]
+[ext_resource type="Texture2D" uid="uid://cxbst0ev0ny5y" path="res://assets/healthbar_progress.png" id="11_fv8ub"]
+[ext_resource type="PackedScene" uid="uid://c7cfhsxstxnnt" path="res://global/upgrade_panel.tscn" id="13_fv8ub"]
+[ext_resource type="Theme" uid="uid://r3yp6lnnqb2o" path="res://misc/main_theme.tres" id="14_xn7c1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_q6ik0"]
+shader = ExtResource("6_fv8ub")
+shader_parameter/fV = 0.26
+
+[node name="Game" type="Node"]
+script = ExtResource("1_0u0vk")
+
+[node name="World" type="Node2D" parent="."]
+script = ExtResource("1_a6aj0")
+
+[node name="TextureRect" type="TextureRect" parent="World"]
+z_index = -1
+offset_left = -41.0
+offset_top = -41.0
+offset_right = 764.0
+offset_bottom = 428.0
+texture = ExtResource("2_plbpi")
+stretch_mode = 1
+
+[node name="Player" parent="World" instance=ExtResource("3_k8ptx")]
+position = Vector2(424, 184)
+
+[node name="Cursor" type="Sprite2D" parent="World"]
+top_level = true
+z_index = 1000
+position = Vector2(288, 176)
+texture = ExtResource("4_kshyb")
+script = ExtResource("5_7n4u8")
+
+[node name="EntitiesLayer" type="CanvasLayer" parent="World"]
+follow_viewport_enabled = true
+
+[node name="Slime" parent="World/EntitiesLayer" groups=["entities"] instance=ExtResource("8_0u0vk")]
+z_index = 0
+position = Vector2(168, 144)
+agro_range = null
+dash_speed = null
+dash_duration = null
+slide_duration = null
+dash_cooldown = null
+contact_damage = null
+bounce_force = null
+title = null
+move_speed = null
+acceleration = null
+friction = null
+max_health = null
+
+[node name="Slime2" parent="World/EntitiesLayer" groups=["entities"] instance=ExtResource("8_0u0vk")]
+z_index = 0
+position = Vector2(304, 72)
+agro_range = null
+dash_speed = null
+dash_duration = null
+slide_duration = null
+dash_cooldown = null
+contact_damage = null
+bounce_force = null
+title = null
+move_speed = null
+acceleration = null
+friction = null
+max_health = null
+
+[node name="Slime3" parent="World/EntitiesLayer" groups=["entities"] instance=ExtResource("8_0u0vk")]
+z_index = 0
+position = Vector2(224, 88)
+agro_range = null
+dash_speed = null
+dash_duration = null
+slide_duration = null
+dash_cooldown = null
+contact_damage = null
+bounce_force = null
+title = null
+move_speed = null
+acceleration = null
+friction = null
+max_health = null
+
+[node name="Slime4" parent="World/EntitiesLayer" groups=["entities"] instance=ExtResource("8_0u0vk")]
+z_index = 0
+position = Vector2(216, 224)
+agro_range = null
+dash_speed = null
+dash_duration = null
+slide_duration = null
+dash_cooldown = null
+contact_damage = null
+bounce_force = null
+title = null
+move_speed = null
+acceleration = null
+friction = null
+max_health = null
+
+[node name="Node" type="Node" parent="World/EntitiesLayer"]
+
+[node name="BulletsLayer" type="CanvasLayer" parent="World"]
+follow_viewport_enabled = true
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="UIControl" type="Control" parent="UILayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_top = -1.0
+offset_right = 640.0
+offset_bottom = 348.0
+script = ExtResource("1_fv8ub")
+
+[node name="Manabar" type="TextureProgressBar" parent="UILayer/UIControl"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_top = 12.0
+offset_right = 103.0
+offset_bottom = 25.0
+value = 100.0
+texture_under = ExtResource("10_kshyb")
+texture_progress = ExtResource("11_7n4u8")
+
+[node name="HealthBar" type="TextureProgressBar" parent="UILayer/UIControl"]
+unique_name_in_owner = true
+layout_mode = 1
+offset_right = 103.0
+offset_bottom = 13.0
+value = 100.0
+texture_under = ExtResource("10_kshyb")
+texture_progress = ExtResource("11_fv8ub")
+
+[node name="TextureRect" type="TextureRect" parent="UILayer"]
+visible = false
+material = SubResource("ShaderMaterial_q6ik0")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 555.0
+offset_top = 306.0
+offset_right = -96.0
+offset_bottom = -55.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("7_xn7c1")
+
+[node name="UpgradesChoise" type="Control" parent="UILayer"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 623.0
+offset_bottom = 364.0
+
+[node name="LeftUpgradePanel" parent="UILayer/UpgradesChoise" node_paths=PackedStringArray("hand") instance=ExtResource("13_fv8ub")]
+layout_mode = 0
+offset_left = 112.0
+offset_top = 42.0
+offset_right = 274.0
+offset_bottom = 284.0
+hand = NodePath("../../../World/Player/AnimatedSprite2D/LeftSleeve/LeftHand")
+
+[node name="Label" type="Label" parent="UILayer/UpgradesChoise"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 287.0
+offset_right = 247.0
+offset_bottom = 305.0
+theme = ExtResource("14_xn7c1")
+text = "Для левой руки"
+horizontal_alignment = 1
+
+[node name="RightUpgradePanel" parent="UILayer/UpgradesChoise" node_paths=PackedStringArray("hand") instance=ExtResource("13_fv8ub")]
+layout_mode = 0
+offset_left = 345.0
+offset_top = 40.0
+offset_right = 507.0
+offset_bottom = 282.0
+hand = NodePath("../../../World/Player/AnimatedSprite2D/RightSleeve/RightHand")
+
+[node name="Label2" type="Label" parent="UILayer/UpgradesChoise"]
+layout_mode = 0
+offset_left = 375.0
+offset_top = 287.0
+offset_right = 480.0
+offset_bottom = 305.0
+theme = ExtResource("14_xn7c1")
+text = "Для правой руки"
+horizontal_alignment = 1
+
+[editable path="World/Player"]

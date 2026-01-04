@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=6 format=3 uid="uid://cafs3f5jaqlwr"]
+
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_yvjcy"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_akfux"]
+[ext_resource type="Script" uid="uid://crv127sfuq7yf" path="res://objects/bullet_perks/random_stats_perk.gd" id="2_hnm60"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_hnm60"]
+
+[sub_resource type="Resource" id="Resource_81ige"]
+script = ExtResource("2_hnm60")
+metadata/_custom_type_script = "uid://crv127sfuq7yf"
+
+[resource]
+script = ExtResource("2_akfux")
+title = "Хаос"
+description = "Снаряды имеют случайный урон, дальность и скорость в диапазоне от -50% до +100% своих характеристик
++25% урон
++25% скорость
++25% дальность"
+perks = Array[ExtResource("1_yvjcy")]([SubResource("Resource_81ige")])
+damage_pct = 25.0
+speed_pct = 25.0
+range_pct = 25.0
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

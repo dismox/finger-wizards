@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=4 format=3 uid="uid://cc4wutkuefgd5"]
+
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_uscyo"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_jj551"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_yr0hp"]
+
+[resource]
+script = ExtResource("2_jj551")
+title = "Балансировка"
+description = "+50% дальность
+-25% урон"
+damage_pct = -25.0
+range_pct = 50.0
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

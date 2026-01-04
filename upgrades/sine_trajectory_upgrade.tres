@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=6 format=3 uid="uid://dxsqcoq3j6dg5"]
+
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_v7ila"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_gdngg"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_8kwap"]
+[ext_resource type="Script" uid="uid://cu5p3cuo858qj" path="res://modifiers/trajectory_modifiers/trajectory_sine.gd" id="4_gdngg"]
+
+[sub_resource type="Resource" id="Resource_8kwap"]
+script = ExtResource("4_gdngg")
+metadata/_custom_type_script = "uid://cu5p3cuo858qj"
+
+[resource]
+script = ExtResource("2_gdngg")
+title = "Змейка"
+description = "Снаряды летят змейкой
++25% дальность
+-10% скорость снарядов"
+trajectory_modifiers = Array[ExtResource("3_8kwap")]([SubResource("Resource_8kwap")])
+speed_pct = -10.0
+range_pct = 25.0
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

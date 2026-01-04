@@ -1,0 +1,301 @@
+[gd_scene load_steps=49 format=3 uid="uid://bnk8kse82y108"]
+
+[ext_resource type="Script" uid="uid://btar5n6xuetpi" path="res://objects/entities/player/player.gd" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://bfs8tjekcbsgw" path="res://assets/shadow.png" id="2_7cdlc"]
+[ext_resource type="Texture2D" uid="uid://bv2h2lxpol8dp" path="res://assets/wizard/wizard.png" id="2_sweqy"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_ywlym"]
+[ext_resource type="Texture2D" uid="uid://df5udckdw8jq5" path="res://assets/wizard/left_sleeve.png" id="3_2hs0m"]
+[ext_resource type="Resource" uid="uid://cmoe5k0mlsc4f" path="res://upgrades/bounce_upgrade.tres" id="3_bg3k4"]
+[ext_resource type="Resource" uid="uid://dxatu7n1dtmag" path="res://upgrades/fire_aspect_upgrade.tres" id="3_hv0uu"]
+[ext_resource type="Texture2D" uid="uid://brt32oejtcgd8" path="res://assets/wizard/hand.png" id="4_1jxqw"]
+[ext_resource type="Resource" uid="uid://beve1wu4xbpt5" path="res://upgrades/chain_upgrade.tres" id="4_inbqy"]
+[ext_resource type="Resource" uid="uid://d21kpsqvovhbn" path="res://upgrades/freeze_aspect_upgrade.tres" id="4_ynd4r"]
+[ext_resource type="Resource" uid="uid://dskomauvmkj0r" path="res://upgrades/homing_upgrade.tres" id="5_3vepp"]
+[ext_resource type="Texture2D" uid="uid://wlfl35buagxp" path="res://assets/wizard/right_sleeve.png" id="5_dw050"]
+[ext_resource type="Resource" uid="uid://bfq1jj45ru5h6" path="res://upgrades/decreasing_damage_upgrade.tres" id="5_ghma6"]
+[ext_resource type="Script" uid="uid://dm8bev2ea7w44" path="res://global/camera_rig.gd" id="6_2hs0m"]
+[ext_resource type="Resource" uid="uid://brmrdmc28cdwu" path="res://upgrades/orbit_upgrade.tres" id="6_2ikky"]
+[ext_resource type="Script" uid="uid://dq6ga8sjxmfrd" path="res://objects/entities/player/hand.gd" id="6_dw050"]
+[ext_resource type="Resource" uid="uid://fglt637g6kmy" path="res://upgrades/sine_speed_upgrade.tres" id="7_jkcoh"]
+[ext_resource type="Resource" uid="uid://edo0eye4y2yr" path="res://upgrades/gravity_cursor_upgrade.tres" id="8_fmajr"]
+[ext_resource type="Resource" uid="uid://dxsqcoq3j6dg5" path="res://upgrades/sine_trajectory_upgrade.tres" id="8_rq4s4"]
+[ext_resource type="Resource" uid="uid://nyetqmv73sfd" path="res://upgrades/speed_decay_upgrade.tres" id="9_a5ium"]
+[ext_resource type="Resource" uid="uid://pj8w51dk6lwx" path="res://upgrades/gravity_fade_upgrade.tres" id="9_woljv"]
+[ext_resource type="Resource" uid="uid://dunbgjq2tew8r" path="res://upgrades/gravity_flight_upgrade.tres" id="10_nid2c"]
+[ext_resource type="Resource" uid="uid://b4815q3op12va" path="res://upgrades/speed_growth_upgrade.tres" id="10_r5uv3"]
+[ext_resource type="Resource" uid="uid://b86c3ojq5b8tw" path="res://upgrades/gravity_hit_upgrade.tres" id="11_app4b"]
+[ext_resource type="PackedScene" uid="uid://cy1ggtpnudmp6" path="res://objects/bullet.tscn" id="11_jgh0o"]
+[ext_resource type="Resource" uid="uid://didph0yhhe5c6" path="res://upgrades/spiral_upgrade.tres" id="11_xlyga"]
+[ext_resource type="Resource" uid="uid://c848qustqimh6" path="res://upgrades/telekinesis_upgrade.tres" id="12_4yvtw"]
+[ext_resource type="Resource" uid="uid://cjd1veqho2il1" path="res://upgrades/increasing_damage_upgrade.tres" id="13_fnena"]
+[ext_resource type="Resource" uid="uid://bn7ehmi7ctnqc" path="res://upgrades/zigzag_upgrade.tres" id="13_s5f1v"]
+[ext_resource type="Resource" uid="uid://dckkwhouwnedj" path="res://upgrades/merge_upgrade.tres" id="14_7i7pc"]
+[ext_resource type="Resource" uid="uid://bg6hw3txxo65o" path="res://upgrades/pierce_upgrade.tres" id="16_xfrni"]
+[ext_resource type="Resource" uid="uid://dw6rs2fabfca5" path="res://upgrades/puddle_flight_upgrade.tres" id="17_7843a"]
+[ext_resource type="Resource" uid="uid://bpyf8wv7uan6e" path="res://upgrades/puddle_hit_upgrade.tres" id="18_o1bp3"]
+[ext_resource type="Resource" uid="uid://cgs50teeybiqt" path="res://upgrades/push_upgrade.tres" id="19_jwunf"]
+[ext_resource type="Resource" uid="uid://dktm7xv0llyqu" path="res://upgrades/random_damage_upgrade.tres" id="20_k6gdf"]
+[ext_resource type="Resource" uid="uid://cafs3f5jaqlwr" path="res://upgrades/random_stats_upgrade.tres" id="21_yqtn1"]
+[ext_resource type="Resource" uid="uid://qwuo5qfnjx3u" path="res://upgrades/super_hot_upgrade.tres" id="27_7r56c"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b26j0"]
+radius = 9.848858
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7ghd"]
+atlas = ExtResource("2_sweqy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvl01"]
+atlas = ExtResource("2_sweqy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ivps1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7ghd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvl01")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psowp"]
+atlas = ExtResource("4_1jxqw")
+region = Rect2(0, 0, 9, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45urx"]
+atlas = ExtResource("4_1jxqw")
+region = Rect2(9, 0, 9, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c34wb"]
+atlas = ExtResource("4_1jxqw")
+region = Rect2(18, 0, 9, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_urp6f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psowp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45urx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c34wb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psowp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="Animation" id="Animation_606se"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D/LeftSleeve:offset:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D/RightSleeve:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_bwjto"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D/LeftSleeve:offset:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0.0, -1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D/RightSleeve:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u1c27"]
+_data = {
+&"RESET": SubResource("Animation_606se"),
+&"idle": SubResource("Animation_bwjto")
+}
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_4flbx")
+all_upgrades = Array[ExtResource("2_ywlym")]([ExtResource("3_bg3k4"), ExtResource("4_inbqy"), ExtResource("5_ghma6"), ExtResource("3_hv0uu"), ExtResource("4_ynd4r"), ExtResource("8_fmajr"), ExtResource("9_woljv"), ExtResource("10_nid2c"), ExtResource("11_app4b"), ExtResource("5_3vepp"), ExtResource("13_fnena"), ExtResource("14_7i7pc"), ExtResource("6_2ikky"), ExtResource("16_xfrni"), ExtResource("17_7843a"), ExtResource("18_o1bp3"), ExtResource("19_jwunf"), ExtResource("20_k6gdf"), ExtResource("21_yqtn1"), ExtResource("7_jkcoh"), ExtResource("8_rq4s4"), ExtResource("9_a5ium"), ExtResource("10_r5uv3"), ExtResource("11_xlyga"), ExtResource("27_7r56c"), ExtResource("12_4yvtw"), ExtResource("13_s5f1v")])
+
+[node name="TextureRect" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, 12.000001)
+scale = Vector2(2.1875, 1.5)
+texture = ExtResource("2_7cdlc")
+
+[node name="HitboxArea" type="Area2D" parent="."]
+
+[node name="HitboxCollision" type="CollisionShape2D" parent="HitboxArea"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_b26j0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ivps1")
+autoplay = "default"
+frame_progress = 0.8912503
+
+[node name="LeftSleeve" type="Sprite2D" parent="AnimatedSprite2D"]
+position = Vector2(-9, 5)
+texture = ExtResource("3_2hs0m")
+
+[node name="LeftHand" type="AnimatedSprite2D" parent="AnimatedSprite2D/LeftSleeve" node_paths=PackedStringArray("player", "bullet_point", "particle")]
+texture_filter = 1
+position = Vector2(3, 1)
+sprite_frames = SubResource("SpriteFrames_urp6f")
+autoplay = "default"
+frame_progress = 0.9958453
+offset = Vector2(0, -2)
+script = ExtResource("6_dw050")
+signal_type = "shoot_left_hand"
+damage = 20.0
+speed = 150.0
+range = 200.0
+fire_rate = 0.25
+player = NodePath("../../..")
+bullet_point = NodePath("LeftHandPoint")
+particle = NodePath("LeftHandPoint/LeftHandParticle")
+bullet_scene = ExtResource("11_jgh0o")
+
+[node name="LeftHandPoint" type="Marker2D" parent="AnimatedSprite2D/LeftSleeve/LeftHand"]
+
+[node name="LeftHandParticle" type="CPUParticles2D" parent="AnimatedSprite2D/LeftSleeve/LeftHand/LeftHandPoint"]
+emitting = false
+amount = 30
+lifetime = 0.5
+one_shot = true
+preprocess = 0.02
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+local_coords = true
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 20)
+initial_velocity_max = 40.4
+angular_velocity_max = 116.36
+orbit_velocity_max = 0.5
+linear_accel_min = 26.26
+linear_accel_max = 26.26
+radial_accel_min = -20.2
+radial_accel_max = -20.2
+tangential_accel_min = -32.32
+tangential_accel_max = -32.32
+damping_min = 44.444
+damping_max = 44.444
+color = Color(0, 0, 1, 1)
+
+[node name="RightSleeve" type="Sprite2D" parent="AnimatedSprite2D"]
+position = Vector2(8, 5)
+texture = ExtResource("5_dw050")
+
+[node name="RightHand" type="AnimatedSprite2D" parent="AnimatedSprite2D/RightSleeve" node_paths=PackedStringArray("player", "bullet_point", "particle")]
+texture_filter = 1
+position = Vector2(-2, 0)
+sprite_frames = SubResource("SpriteFrames_urp6f")
+autoplay = "default"
+frame_progress = 0.030280303
+offset = Vector2(0, -2)
+flip_h = true
+script = ExtResource("6_dw050")
+signal_type = "shoot_right_hand"
+damage = 20.0
+speed = 150.0
+range = 200.0
+fire_rate = 0.25
+player = NodePath("../../..")
+bullet_point = NodePath("RightHandPoint")
+particle = NodePath("RightHandPoint/RightHandParticle")
+bullet_scene = ExtResource("11_jgh0o")
+
+[node name="RightHandPoint" type="Marker2D" parent="AnimatedSprite2D/RightSleeve/RightHand"]
+
+[node name="RightHandParticle" type="CPUParticles2D" parent="AnimatedSprite2D/RightSleeve/RightHand/RightHandPoint"]
+emitting = false
+amount = 30
+lifetime = 0.5
+one_shot = true
+preprocess = 0.02
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+local_coords = true
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 20)
+initial_velocity_max = 40.4
+angular_velocity_max = 116.36
+orbit_velocity_max = 0.5
+linear_accel_min = 26.26
+linear_accel_max = 26.26
+radial_accel_min = -20.2
+radial_accel_max = -20.2
+tangential_accel_min = -32.32
+tangential_accel_max = -32.32
+damping_min = 44.444
+damping_max = 44.444
+color = Color(0, 0, 1, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_u1c27")
+}
+autoplay = "idle"
+
+[node name="CameraRig" type="Node2D" parent="."]
+script = ExtResource("6_2hs0m")
+
+[node name="Camera2D" type="Camera2D" parent="CameraRig"]
+
+[node name="HitboxCollision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_b26j0")
+disabled = true

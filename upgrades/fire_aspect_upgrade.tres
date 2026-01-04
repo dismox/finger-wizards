@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=5 format=3 uid="uid://dxatu7n1dtmag"]
+
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_lamtw"]
+[ext_resource type="PackedScene" uid="uid://dwxkjyw3mjmgk" path="res://objects/fireball.tscn" id="1_tvhpg"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_tvhpg"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_usker"]
+
+[resource]
+script = ExtResource("2_tvhpg")
+title = "Аспект огня"
+description = "Заменяет снаряды на фаерболы
++25% урон
+-25% дальность
+"
+damage_pct = 25.0
+range_pct = -25.0
+aspect_change = ExtResource("1_tvhpg")
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

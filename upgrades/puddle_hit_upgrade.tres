@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=6 format=3 uid="uid://bpyf8wv7uan6e"]
+
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_x36tc"]
+[ext_resource type="Script" uid="uid://b2xv0phiq1ut7" path="res://objects/bullet_perks/puddle_on_hit_perk.gd" id="2_32paa"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="3_sdbl8"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="4_sc2wd"]
+
+[sub_resource type="Resource" id="Resource_3nwo6"]
+script = ExtResource("2_32paa")
+metadata/_custom_type_script = "uid://b2xv0phiq1ut7"
+
+[resource]
+script = ExtResource("3_sdbl8")
+title = "След при попадании"
+description = "Снаряды оставляют след при попадании"
+perks = Array[ExtResource("1_x36tc")]([SubResource("Resource_3nwo6")])
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

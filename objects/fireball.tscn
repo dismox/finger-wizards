@@ -1,0 +1,164 @@
+[gd_scene load_steps=16 format=3 uid="uid://dwxkjyw3mjmgk"]
+
+[ext_resource type="PackedScene" uid="uid://cy1ggtpnudmp6" path="res://objects/bullet.tscn" id="1_7o6fc"]
+[ext_resource type="Texture2D" uid="uid://cpoawa74sv2iy" path="res://assets/test_particle.png" id="2_7lfy7"]
+[ext_resource type="Texture2D" uid="uid://1o2f3du4jhq2" path="res://assets/beam.png" id="2_22dfg"]
+[ext_resource type="Texture2D" uid="uid://dx6ywnpvxtlua" path="res://assets/fireball.png" id="3_7o6fc"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_icrhl"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 2
+particles_anim_loop = true
+
+[sub_resource type="Curve" id="Curve_uowv8"]
+_data = [Vector2(0, 0.62560004), 0.0, 0.0, 0, 0, Vector2(0.476, 0.5008001), 0.0, 0.0, 0, 0, Vector2(0.98399997, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_vjs1x"]
+offsets = PackedFloat32Array(0, 0.29464287, 0.4642857, 0.72321427, 1)
+colors = PackedColorArray(1, 0, 0, 1, 0.95526904, 0.6907688, 0, 1, 0.5686275, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucnj8"]
+atlas = ExtResource("2_22dfg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22dfg"]
+atlas = ExtResource("3_7o6fc")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7lfy7"]
+atlas = ExtResource("3_7o6fc")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_icrhl"]
+atlas = ExtResource("3_7o6fc")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uowv8"]
+atlas = ExtResource("3_7o6fc")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjs1x"]
+atlas = ExtResource("3_7o6fc")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7c3m"]
+atlas = ExtResource("3_7o6fc")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_icrhl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucnj8")
+}],
+"loop": true,
+"name": &"beam",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22dfg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22dfg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lfy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icrhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uowv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjs1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7c3m")
+}],
+"loop": false,
+"name": &"fade",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7c3m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjs1x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uowv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_icrhl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7lfy7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22dfg")
+}],
+"loop": false,
+"name": &"spawn",
+"speed": 24.0
+}]
+
+[node name="Fireball" instance=ExtResource("1_7o6fc")]
+puddle_type = 5
+bullet_type = 1
+main_color = Color(0.9372549, 0.21176471, 0, 1)
+
+[node name="HitboxArea" parent="BulletArea" index="0"]
+visible = false
+
+[node name="Particle" parent="." index="2"]
+z_index = 0
+material = SubResource("CanvasItemMaterial_icrhl")
+amount = 20
+texture = ExtResource("2_7lfy7")
+lifetime = 0.5
+preprocess = 0.0
+speed_scale = 0.5
+explosiveness = 0.0
+randomness = 0.0
+lifetime_randomness = 0.0
+local_coords = false
+draw_order = 1
+spread = 52.94
+gravity = Vector2(0, -50)
+initial_velocity_max = 58.82
+angular_velocity_min = 0.0
+angular_velocity_max = 0.0
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.1
+linear_accel_min = -26.46
+linear_accel_max = 30.89
+radial_accel_min = 0.0
+radial_accel_max = 0.0
+tangential_accel_min = 0.0
+tangential_accel_max = 0.0
+damping_min = 94.853
+damping_max = 94.853
+scale_amount_max = 1.0
+scale_amount_curve = SubResource("Curve_uowv8")
+color = Color(1, 1, 1, 1)
+color_ramp = SubResource("Gradient_vjs1x")
+anim_speed_min = 3.0
+anim_speed_max = 3.0
+anim_offset_max = 1.0
+
+[node name="Sprite" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_icrhl")
+
+[node name="HitParticle" parent="." index="5"]
+lifetime_randomness = 0.0
+color = Color(1, 0, 0, 1)

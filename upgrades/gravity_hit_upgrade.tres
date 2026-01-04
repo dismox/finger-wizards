@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=6 format=3 uid="uid://b86c3ojq5b8tw"]
+
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_mydc5"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_8cs5u"]
+[ext_resource type="Script" uid="uid://rocy8aa5w47b" path="res://objects/bullet_perks/hit_gravity_perk.gd" id="2_djxwd"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_djxwd"]
+
+[sub_resource type="Resource" id="Resource_34av6"]
+script = ExtResource("2_djxwd")
+metadata/_custom_type_script = "uid://rocy8aa5w47b"
+
+[resource]
+script = ExtResource("2_8cs5u")
+title = "Гравитационный удар"
+description = "При попадании притягивает существ в эту точку
++10% урон"
+perks = Array[ExtResource("1_mydc5")]([SubResource("Resource_34av6")])
+damage_pct = 10.0
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

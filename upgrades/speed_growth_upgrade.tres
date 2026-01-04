@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=6 format=3 uid="uid://b4815q3op12va"]
+
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_ry2xq"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_dvov7"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_65kje"]
+[ext_resource type="Script" uid="uid://c1ce1l8xvu30g" path="res://modifiers/trajectory_modifiers/trajectory_speed_growth.gd" id="4_fvp2m"]
+
+[sub_resource type="Resource" id="Resource_swcr5"]
+script = ExtResource("4_fvp2m")
+metadata/_custom_type_script = "uid://c1ce1l8xvu30g"
+
+[resource]
+script = ExtResource("2_dvov7")
+title = "Ускорение"
+description = "Скорость снаряда возрастает после запуска
+-100% скорости снаряда"
+trajectory_modifiers = Array[ExtResource("3_65kje")]([SubResource("Resource_swcr5")])
+speed_pct = -100.0
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

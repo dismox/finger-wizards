@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=6 format=3 uid="uid://dskomauvmkj0r"]
+
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_tbnpa"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_psfwh"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_ckvyk"]
+[ext_resource type="Script" uid="uid://b5mes01e7m7x6" path="res://modifiers/trajectory_modifiers/trajectory_homing.gd" id="4_bdxvv"]
+
+[sub_resource type="Resource" id="Resource_lndan"]
+script = ExtResource("4_bdxvv")
+metadata/_custom_type_script = "uid://b5mes01e7m7x6"
+
+[resource]
+script = ExtResource("2_psfwh")
+title = "Самонаводка"
+description = "Снаряды направляются к ближайшим целям
+-25% урон
++25% дальность"
+trajectory_modifiers = Array[ExtResource("3_ckvyk")]([SubResource("Resource_lndan")])
+damage_pct = -25.0
+range_pct = 25.0
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

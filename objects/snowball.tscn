@@ -1,0 +1,150 @@
+[gd_scene load_steps=15 format=3 uid="uid://cxdfhnbxa3at2"]
+
+[ext_resource type="PackedScene" uid="uid://cy1ggtpnudmp6" path="res://objects/bullet.tscn" id="1_x88vh"]
+[ext_resource type="Texture2D" uid="uid://02pawl0vmk3x" path="res://assets/frost_particle.png" id="2_s6i4p"]
+[ext_resource type="Texture2D" uid="uid://1o2f3du4jhq2" path="res://assets/beam.png" id="3_fdpyo"]
+[ext_resource type="Texture2D" uid="uid://cyw7c42nf66b3" path="res://assets/snowball.png" id="4_4hc6l"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_to1xg"]
+particles_animation = true
+particles_anim_h_frames = 4
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Gradient" id="Gradient_s6i4p"]
+offsets = PackedFloat32Array(0, 0.76785713, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0.85490197, 0.827451, 1, 1, 1, 1, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucnj8"]
+atlas = ExtResource("3_fdpyo")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4du02"]
+atlas = ExtResource("4_4hc6l")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_os0ka"]
+atlas = ExtResource("4_4hc6l")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dutth"]
+atlas = ExtResource("4_4hc6l")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_argj1"]
+atlas = ExtResource("4_4hc6l")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3pkq"]
+atlas = ExtResource("4_4hc6l")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fe67e"]
+atlas = ExtResource("4_4hc6l")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_04fwu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucnj8")
+}],
+"loop": true,
+"name": &"beam",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4du02")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4du02")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_os0ka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dutth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_argj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3pkq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fe67e")
+}],
+"loop": false,
+"name": &"fade",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fe67e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3pkq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_argj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dutth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_os0ka")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4du02")
+}],
+"loop": false,
+"name": &"spawn",
+"speed": 24.0
+}]
+
+[node name="Snowball" instance=ExtResource("1_x88vh")]
+puddle_type = 0
+bullet_type = 2
+main_color = Color(0, 0.8509804, 0.76862746, 1)
+
+[node name="Particle" parent="." index="2"]
+material = SubResource("CanvasItemMaterial_to1xg")
+scale = Vector2(1, 1)
+amount = 10
+texture = ExtResource("2_s6i4p")
+speed_scale = 0.25
+explosiveness = 0.0
+lifetime_randomness = 0.0
+local_coords = false
+gravity = Vector2(0, 90)
+initial_velocity_max = 0.0
+orbit_velocity_min = 0.0
+orbit_velocity_max = 0.0
+linear_accel_min = 0.0
+linear_accel_max = 0.0
+radial_accel_min = 0.0
+radial_accel_max = 0.0
+tangential_accel_min = 0.0
+tangential_accel_max = 0.0
+damping_min = 16.177
+damping_max = 16.177
+angle_min = 307.1
+angle_max = 307.1
+color = Color(1, 1, 1, 1)
+color_ramp = SubResource("Gradient_s6i4p")
+hue_variation_min = -0.65
+hue_variation_max = 0.67
+anim_speed_max = 0.0
+anim_offset_max = 1.0
+
+[node name="Sprite" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_04fwu")
+
+[node name="HitParticle" parent="." index="5"]
+color = Color(1, 1, 1, 1)

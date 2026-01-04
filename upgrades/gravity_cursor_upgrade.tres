@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=6 format=3 uid="uid://edo0eye4y2yr"]
+
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_1bpi1"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_3lgkg"]
+[ext_resource type="Script" uid="uid://dslqfpyalmvjs" path="res://objects/bullet_perks/cursor_gravity_perk.gd" id="2_j260u"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_j260u"]
+
+[sub_resource type="Resource" id="Resource_vsq4q"]
+script = ExtResource("2_j260u")
+metadata/_custom_type_script = "uid://dslqfpyalmvjs"
+
+[resource]
+script = ExtResource("2_3lgkg")
+title = "Гравитационный курсор"
+description = "Враги стягиваются к курсору во время стрельбы"
+perks = Array[ExtResource("1_1bpi1")]([SubResource("Resource_vsq4q")])
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

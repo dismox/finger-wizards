@@ -1,0 +1,17 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://r3yp6lnnqb2o"]
+
+[ext_resource type="FontFile" uid="uid://b2j6ev6bdp4y1" path="res://misc/Born2bSportyFS.otf" id="1_hkmxq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hkmxq"]
+bg_color = Color(1, 0.341757, 0.2900476, 0.3019608)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+anti_aliasing = false
+
+[resource]
+Button/fonts/font = ExtResource("1_hkmxq")
+Button/styles/normal = SubResource("StyleBoxFlat_hkmxq")
+Label/constants/outline_size = 0
+Label/fonts/font = ExtResource("1_hkmxq")

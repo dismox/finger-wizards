@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=5 format=3 uid="uid://d21kpsqvovhbn"]
+
+[ext_resource type="PackedScene" uid="uid://cxdfhnbxa3at2" path="res://objects/snowball.tscn" id="1_10kyp"]
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_sgcui"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_10kyp"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_ks5j6"]
+
+[resource]
+script = ExtResource("2_10kyp")
+title = "Аспект холода"
+description = "Заменяет снаряды на снежки
+-50% урон
++50% скрострельность
++50% дальность
++50% скорость снарядов
+"
+damage_pct = -50.0
+speed_pct = 50.0
+range_pct = 50.0
+fire_rate_pct = 50.0
+aspect_change = ExtResource("1_10kyp")
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

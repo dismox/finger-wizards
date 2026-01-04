@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=6 format=3 uid="uid://dunbgjq2tew8r"]
+
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_1khpu"]
+[ext_resource type="Script" uid="uid://dioj1ttptvh4u" path="res://objects/bullet_perks/flight_gravity_perk.gd" id="2_b08r4"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_mfpwy"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_b08r4"]
+
+[sub_resource type="Resource" id="Resource_fa6o0"]
+script = ExtResource("2_b08r4")
+metadata/_custom_type_script = "uid://dioj1ttptvh4u"
+
+[resource]
+script = ExtResource("2_mfpwy")
+title = "Притягивающий полет"
+description = "Летящие снаряды притягивают к себе врагов
+-25% скорость снаряда"
+perks = Array[ExtResource("1_1khpu")]([SubResource("Resource_fa6o0")])
+speed_pct = -25.0
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

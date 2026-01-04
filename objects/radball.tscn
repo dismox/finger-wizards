@@ -1,0 +1,158 @@
+[gd_scene load_steps=16 format=3 uid="uid://ci2s66h6hqlwn"]
+
+[ext_resource type="PackedScene" uid="uid://cy1ggtpnudmp6" path="res://objects/bullet.tscn" id="1_hin7l"]
+[ext_resource type="Texture2D" uid="uid://cpoawa74sv2iy" path="res://assets/test_particle.png" id="2_esht2"]
+[ext_resource type="Texture2D" uid="uid://1o2f3du4jhq2" path="res://assets/beam.png" id="2_tjii7"]
+[ext_resource type="Texture2D" uid="uid://cryca7afi8i3w" path="res://assets/radball.png" id="3_tjii7"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_icrhl"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 2
+particles_anim_loop = true
+
+[sub_resource type="Curve" id="Curve_tjii7"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.7559999, 0.45925295), 0.0, 0.0, 0, 0, Vector2(0.98399997, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_tjii7"]
+offsets = PackedFloat32Array(0, 0.19196428, 0.38839287, 1)
+colors = PackedColorArray(0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0.012617188, 0.012617188, 0.012617188, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucnj8"]
+atlas = ExtResource("2_tjii7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esht2"]
+atlas = ExtResource("3_tjii7")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tdvya"]
+atlas = ExtResource("3_tjii7")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kotfv"]
+atlas = ExtResource("3_tjii7")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kvfw2"]
+atlas = ExtResource("3_tjii7")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0cuef"]
+atlas = ExtResource("3_tjii7")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6fy8j"]
+atlas = ExtResource("3_tjii7")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tdvya"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucnj8")
+}],
+"loop": true,
+"name": &"beam",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esht2")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdvya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esht2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kotfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvfw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cuef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fy8j")
+}],
+"loop": false,
+"name": &"fade",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6fy8j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0cuef")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kvfw2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kotfv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esht2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tdvya")
+}],
+"loop": false,
+"name": &"spawn",
+"speed": 24.0
+}]
+
+[node name="Radball" instance=ExtResource("1_hin7l")]
+puddle_type = 3
+main_color = Color(0, 1, 0, 1)
+
+[node name="Particle" parent="." index="2"]
+z_index = 0
+material = SubResource("CanvasItemMaterial_icrhl")
+scale = Vector2(0.25, 0.25)
+amount = 20
+texture = ExtResource("2_esht2")
+lifetime = 0.35000000000000003
+preprocess = 0.0
+speed_scale = 0.2
+explosiveness = 0.0
+randomness = 0.0
+lifetime_randomness = 0.0
+draw_order = 1
+gravity = Vector2(0, -50)
+initial_velocity_max = 58.82
+angular_velocity_min = 0.0
+angular_velocity_max = 0.0
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.1
+linear_accel_min = -26.46
+linear_accel_max = 30.89
+radial_accel_min = 0.0
+radial_accel_max = 0.0
+tangential_accel_min = 0.0
+tangential_accel_max = 0.0
+damping_min = 100.0
+damping_max = 100.0
+scale_amount_max = 1.0
+scale_amount_curve = SubResource("Curve_tjii7")
+color = Color(1, 1, 1, 1)
+color_ramp = SubResource("Gradient_tjii7")
+anim_speed_min = 3.0
+anim_speed_max = 3.0
+anim_offset_max = 1.0
+
+[node name="Sprite" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_tdvya")
+
+[node name="HitParticle" parent="." index="5"]
+color = Color(0, 1, 0, 1)

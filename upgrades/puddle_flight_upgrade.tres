@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=6 format=3 uid="uid://dw6rs2fabfca5"]
+
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_k3stq"]
+[ext_resource type="Script" uid="uid://bx3tif6t5o8yj" path="res://objects/bullet_perks/puddle_on_flight_perk.gd" id="2_d1kvt"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_tc7qx"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_d1kvt"]
+
+[sub_resource type="Resource" id="Resource_ip87q"]
+script = ExtResource("2_d1kvt")
+metadata/_custom_type_script = "uid://bx3tif6t5o8yj"
+
+[resource]
+script = ExtResource("2_tc7qx")
+title = "След"
+description = "Снаряды оставляют след при полете"
+perks = Array[ExtResource("1_k3stq")]([SubResource("Resource_ip87q")])
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

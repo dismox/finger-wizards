@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=6 format=3 uid="uid://fglt637g6kmy"]
+
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_sjwbw"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_edo50"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_fbggl"]
+[ext_resource type="Script" uid="uid://bstgxxttnd6ba" path="res://modifiers/trajectory_modifiers/trajectory_speed_sine.gd" id="4_edo50"]
+
+[sub_resource type="Resource" id="Resource_fbggl"]
+script = ExtResource("4_edo50")
+metadata/_custom_type_script = "uid://bstgxxttnd6ba"
+
+[resource]
+script = ExtResource("2_edo50")
+title = "Ползун"
+description = "Скорость снаряда меняется во время полета
+-25% скорость снарядов"
+trajectory_modifiers = Array[ExtResource("3_fbggl")]([SubResource("Resource_fbggl")])
+speed_pct = -25.0
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

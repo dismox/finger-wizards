@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=6 format=3 uid="uid://cjd1veqho2il1"]
+
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_lk4ky"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_mh04w"]
+[ext_resource type="Script" uid="uid://dd81tf3wj141y" path="res://objects/bullet_perks/increasing_damage_on_flight_perk.gd" id="2_usuoe"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_usuoe"]
+
+[sub_resource type="Resource" id="Resource_2r5gq"]
+script = ExtResource("2_usuoe")
+metadata/_custom_type_script = "uid://dd81tf3wj141y"
+
+[resource]
+script = ExtResource("2_mh04w")
+title = "Нарастание"
+description = "Урон снаряда увеличивается во время полета
+-25% урон
++50% дальность"
+perks = Array[ExtResource("1_lk4ky")]([SubResource("Resource_2r5gq")])
+damage_pct = -25.0
+range_pct = 50.0
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

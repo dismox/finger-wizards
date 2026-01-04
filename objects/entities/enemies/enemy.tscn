@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://c233chmod5v87"]
+
+[ext_resource type="Script" uid="uid://5na4fapfxwoe" path="res://objects/entities/enemies/enemy.gd" id="1_btura"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7qics"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ctifb"]
+
+[node name="Enemy" type="CharacterBody2D"]
+z_index = 2
+script = ExtResource("1_btura")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="HitboxArea" type="Area2D" parent="."]
+
+[node name="HitboxCollision" type="CollisionShape2D" parent="HitboxArea"]
+shape = SubResource("CircleShape2D_7qics")
+
+[node name="HitboxCollision" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ctifb")

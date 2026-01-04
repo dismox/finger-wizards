@@ -1,0 +1,296 @@
+[gd_scene load_steps=30 format=3 uid="uid://bnk8kse82y108"]
+
+[ext_resource type="Script" uid="uid://btar5n6xuetpi" path="res://objects/entities/player/player.gd" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://bfs8tjekcbsgw" path="res://assets/shadow.png" id="2_7cdlc"]
+[ext_resource type="Texture2D" uid="uid://bv2h2lxpol8dp" path="res://assets/wizard/wizard.png" id="2_sweqy"]
+[ext_resource type="Texture2D" uid="uid://df5udckdw8jq5" path="res://assets/wizard/left_sleeve.png" id="3_2hs0m"]
+[ext_resource type="Texture2D" uid="uid://brt32oejtcgd8" path="res://assets/wizard/hand.png" id="4_1jxqw"]
+[ext_resource type="Texture2D" uid="uid://wlfl35buagxp" path="res://assets/wizard/right_sleeve.png" id="5_dw050"]
+[ext_resource type="Script" uid="uid://dm8bev2ea7w44" path="res://global/camera_rig.gd" id="6_2hs0m"]
+[ext_resource type="Script" uid="uid://dq6ga8sjxmfrd" path="res://objects/entities/player/hand.gd" id="6_dw050"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="8_cqdfy"]
+[ext_resource type="PackedScene" uid="uid://cxdfhnbxa3at2" path="res://objects/snowball.tscn" id="9_3scda"]
+[ext_resource type="Script" uid="uid://cu5p3cuo858qj" path="res://modifiers/trajectory_modifiers/trajectory_sine.gd" id="9_7cdlc"]
+[ext_resource type="Script" uid="uid://bstgxxttnd6ba" path="res://modifiers/trajectory_modifiers/trajectory_speed_sine.gd" id="10_3scda"]
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="10_gesn4"]
+[ext_resource type="Script" uid="uid://bx3tif6t5o8yj" path="res://objects/bullet_perks/puddle_on_flight.gd" id="11_gesn4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b26j0"]
+radius = 9.848858
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7ghd"]
+atlas = ExtResource("2_sweqy")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvl01"]
+atlas = ExtResource("2_sweqy")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ivps1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7ghd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvl01")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_psowp"]
+atlas = ExtResource("4_1jxqw")
+region = Rect2(0, 0, 9, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_45urx"]
+atlas = ExtResource("4_1jxqw")
+region = Rect2(9, 0, 9, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c34wb"]
+atlas = ExtResource("4_1jxqw")
+region = Rect2(18, 0, 9, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_urp6f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psowp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_45urx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c34wb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_psowp")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[sub_resource type="Resource" id="Resource_3scda"]
+script = ExtResource("10_3scda")
+metadata/_custom_type_script = "uid://bstgxxttnd6ba"
+
+[sub_resource type="Resource" id="Resource_1bjku"]
+script = ExtResource("11_gesn4")
+metadata/_custom_type_script = "uid://bx3tif6t5o8yj"
+
+[sub_resource type="Resource" id="Resource_6dmnl"]
+script = ExtResource("9_7cdlc")
+metadata/_custom_type_script = "uid://cu5p3cuo858qj"
+
+[sub_resource type="Resource" id="Resource_jgh0o"]
+script = ExtResource("9_7cdlc")
+metadata/_custom_type_script = "uid://cu5p3cuo858qj"
+
+[sub_resource type="Animation" id="Animation_606se"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D/LeftSleeve:offset:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D/RightSleeve:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_bwjto"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 2
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D/LeftSleeve:offset:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0.0, -1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D/RightSleeve:offset:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0.0, 1.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u1c27"]
+_data = {
+&"RESET": SubResource("Animation_606se"),
+&"idle": SubResource("Animation_bwjto")
+}
+
+[node name="Player" type="CharacterBody2D"]
+z_index = 1
+y_sort_enabled = true
+script = ExtResource("1_4flbx")
+
+[node name="TextureRect" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(0, 12.000001)
+scale = Vector2(2.1875, 1.5)
+texture = ExtResource("2_7cdlc")
+
+[node name="HitboxArea" type="Area2D" parent="."]
+
+[node name="HitboxCollision" type="CollisionShape2D" parent="HitboxArea"]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_b26j0")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_ivps1")
+autoplay = "default"
+frame_progress = 0.8912503
+
+[node name="LeftSleeve" type="Sprite2D" parent="AnimatedSprite2D"]
+position = Vector2(-9, 5)
+texture = ExtResource("3_2hs0m")
+
+[node name="LeftHand" type="AnimatedSprite2D" parent="AnimatedSprite2D/LeftSleeve" node_paths=PackedStringArray("player", "bullet_point", "particle")]
+texture_filter = 1
+position = Vector2(3, 1)
+sprite_frames = SubResource("SpriteFrames_urp6f")
+autoplay = "default"
+frame_progress = 0.9958453
+offset = Vector2(0, -2)
+script = ExtResource("6_dw050")
+signal_type = "shoot_left_hand"
+speed = 180.0
+range = 400.0
+fire_rate = 0.1
+trajectory_modifiers = Array[ExtResource("8_cqdfy")]([SubResource("Resource_3scda")])
+perks = Array[ExtResource("10_gesn4")]([SubResource("Resource_1bjku")])
+player = NodePath("../../..")
+bullet_point = NodePath("LeftHandPoint")
+particle = NodePath("LeftHandPoint/LeftHandParticle")
+bullet_scene = ExtResource("9_3scda")
+
+[node name="LeftHandPoint" type="Marker2D" parent="AnimatedSprite2D/LeftSleeve/LeftHand"]
+
+[node name="LeftHandParticle" type="CPUParticles2D" parent="AnimatedSprite2D/LeftSleeve/LeftHand/LeftHandPoint"]
+emitting = false
+amount = 30
+lifetime = 0.5
+one_shot = true
+preprocess = 0.02
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+local_coords = true
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 20)
+initial_velocity_max = 40.4
+angular_velocity_max = 116.36
+orbit_velocity_max = 0.5
+linear_accel_min = 26.26
+linear_accel_max = 26.26
+radial_accel_min = -20.2
+radial_accel_max = -20.2
+tangential_accel_min = -32.32
+tangential_accel_max = -32.32
+damping_min = 44.444
+damping_max = 44.444
+color = Color(0, 0, 1, 1)
+
+[node name="RightSleeve" type="Sprite2D" parent="AnimatedSprite2D"]
+position = Vector2(8, 5)
+texture = ExtResource("5_dw050")
+
+[node name="RightHand" type="AnimatedSprite2D" parent="AnimatedSprite2D/RightSleeve" node_paths=PackedStringArray("player", "bullet_point", "particle")]
+texture_filter = 1
+position = Vector2(-2, 0)
+sprite_frames = SubResource("SpriteFrames_urp6f")
+autoplay = "default"
+frame_progress = 0.030280303
+offset = Vector2(0, -2)
+flip_h = true
+script = ExtResource("6_dw050")
+signal_type = "shoot_right_hand"
+damage = 30.0
+speed = 200.0
+range = 300.0
+fire_rate = 0.25
+spread = 50.0
+trajectory_modifiers = Array[ExtResource("8_cqdfy")]([SubResource("Resource_6dmnl"), SubResource("Resource_jgh0o")])
+player = NodePath("../../..")
+bullet_point = NodePath("RightHandPoint")
+particle = NodePath("RightHandPoint/RightHandParticle")
+bullet_scene = ExtResource("9_3scda")
+
+[node name="RightHandPoint" type="Marker2D" parent="AnimatedSprite2D/RightSleeve/RightHand"]
+
+[node name="RightHandParticle" type="CPUParticles2D" parent="AnimatedSprite2D/RightSleeve/RightHand/RightHandPoint"]
+emitting = false
+amount = 30
+lifetime = 0.5
+one_shot = true
+preprocess = 0.02
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+local_coords = true
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 20)
+initial_velocity_max = 40.4
+angular_velocity_max = 116.36
+orbit_velocity_max = 0.5
+linear_accel_min = 26.26
+linear_accel_max = 26.26
+radial_accel_min = -20.2
+radial_accel_max = -20.2
+tangential_accel_min = -32.32
+tangential_accel_max = -32.32
+damping_min = 44.444
+damping_max = 44.444
+color = Color(0, 0, 1, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_u1c27")
+}
+autoplay = "idle"
+
+[node name="CameraRig" type="Node2D" parent="."]
+script = ExtResource("6_2hs0m")
+
+[node name="Camera2D" type="Camera2D" parent="CameraRig"]
+
+[node name="HitboxCollision" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_b26j0")
+disabled = true

@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=6 format=3 uid="uid://bg6hw3txxo65o"]
+
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_r1ytj"]
+[ext_resource type="Script" uid="uid://dhuywet3f5csm" path="res://objects/bullet_perks/piercing_perk.gd" id="2_bnli1"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_o3e8s"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_bnli1"]
+
+[sub_resource type="Resource" id="Resource_0h0wo"]
+script = ExtResource("2_bnli1")
+metadata/_custom_type_script = "uid://dhuywet3f5csm"
+
+[resource]
+script = ExtResource("2_o3e8s")
+title = "Пронзание"
+description = "Снаряды летят сквозь врагов. Кажое попадание снижает урон снаряда
++50% дальность"
+perks = Array[ExtResource("1_r1ytj")]([SubResource("Resource_0h0wo")])
+range_pct = 50.0
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

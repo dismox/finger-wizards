@@ -1,0 +1,70 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7cfhsxstxnnt"]
+
+[ext_resource type="Script" uid="uid://o4kdwfucakl0" path="res://global/upgrade_panel.gd" id="1_hmx0x"]
+[ext_resource type="Theme" uid="uid://r3yp6lnnqb2o" path="res://misc/main_theme.tres" id="3_gw064"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fv8ub"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 5
+anti_aliasing = false
+
+[node name="UpgradePanel" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 155.0
+offset_bottom = 233.0
+script = ExtResource("1_hmx0x")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_fv8ub")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme = ExtResource("3_gw064")
+text = "Название"
+horizontal_alignment = 1
+
+[node name="DescriptionLabel" type="Label" parent="Panel/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("3_gw064")
+theme_override_font_sizes/font_size = 16
+text = "Название"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="Button" type="Button" parent="Panel/VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme = ExtResource("3_gw064")
+text = "взять"
+
+[connection signal="pressed" from="Panel/VBoxContainer/MarginContainer/Button" to="." method="_on_button_pressed"]
