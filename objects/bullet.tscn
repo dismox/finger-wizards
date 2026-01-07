@@ -109,8 +109,8 @@ animations = [{
 }]
 
 [sub_resource type="Gradient" id="Gradient_v8qja"]
-offsets = PackedFloat32Array(0, 0.5714286, 1)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.09333336, 1, 1, 1, 0)
+offsets = PackedFloat32Array(0, 0.6473214)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_t4vbm"]
 gradient = SubResource("Gradient_v8qja")
@@ -178,11 +178,12 @@ scale = Vector2(0.495, 0.495)
 sprite_frames = SubResource("SpriteFrames_t2bd8")
 autoplay = "spawn"
 
-[node name="PointLight2D" type="PointLight2D" parent="."]
-visible = false
-scale = Vector2(0.9999999, 0.9999999)
+[node name="Light" type="PointLight2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(1.7881393e-07, 1.1920929e-07)
+scale = Vector2(0.9375, 0.9375)
 color = Color(0, 0, 1, 1)
-energy = 1.61
+energy = 2.6
 texture = SubResource("GradientTexture2D_t4vbm")
 texture_scale = 0.2
 

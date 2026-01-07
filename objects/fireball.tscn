@@ -159,6 +159,9 @@ anim_offset_max = 1.0
 [node name="Sprite" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_icrhl")
 
+[node name="Light" parent="." index="4"]
+color = Color(0.6030346, 0.19703722, 0, 1)
+
 [node name="HitParticle" parent="." index="5"]
 lifetime_randomness = 0.0
 color = Color(1, 0, 0, 1)

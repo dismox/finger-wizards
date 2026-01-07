@@ -8,13 +8,13 @@
 script = ExtResource("2_4ycbu")
 title = "Дробь"
 description = "+10 мультишот
-+100% разброс
--100% дальность
--100% урон
++50% разброс
+-80% урон
+-50% дальность
 -50% скорострельность"
-damage_pct = -100.0
-range_pct = -100.0
+damage_pct = -80.0
+range_pct = -50.0
 fire_rate_pct = -50.0
-spread_pct = 100.0
+spread_pct = 50.0
 multishot = 10
 metadata/_custom_type_script = "uid://0gkyl55yqdti"

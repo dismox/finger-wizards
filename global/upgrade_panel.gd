@@ -20,3 +20,10 @@ func _on_button_pressed() -> void:
 	else:
 		Game.player.left_hand.add_upgrade(upgrade)
 	get_parent().queue_free()
+
+
+func _on_panel_mouse_entered() -> void:
+	$AnimationPlayer.play("mouse_entered")
+
+func _on_panel_mouse_exited() -> void:
+	$AnimationPlayer.play("mouse_exited")

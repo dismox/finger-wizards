@@ -22,19 +22,22 @@ class_name Upgrade
 func apply(hand: Hand) -> void:
 	# --- Статы ---
 	hand.damage *= 1.0 + damage_pct / 100.0
+	#hand.damage += 5.0
 	
 	hand.speed *= 1.0 + speed_pct / 100.0
-	hand.speed += 10.0
+	#hand.speed += 10.0
 	
 	hand.range *= 1.0 + range_pct / 100.0
-	hand.speed += 10.0
+	#hand.range += 10.0
 
 	# fire_rate — это задержка, поэтому знак ИНВЕРТИРОВАН
 	hand.fire_rate *= 1.0 - fire_rate_pct / 100.0
-	hand.fire_rate += 0.05
+	#hand.fire_rate += 0.05
 
 	hand.spread *= 1.0 + spread_pct / 100.0
+	
 	hand.multishot += multishot
+	
 	#hand.multishot = int(round(
 	#	hand.multishot * (1.0 + multishot_pct / 100.0)
 	#))
@@ -53,18 +56,21 @@ func apply(hand: Hand) -> void:
 
 func remove(hand: Hand) -> void:
 	hand.damage /= 1.0 + damage_pct / 100.0
+	#hand.damage -= 5.0
 	
 	hand.speed /= 1.0 + speed_pct / 100.0
-	hand.speed -= 10.0
+	#hand.speed -= 10.0
 	
 	hand.range /= 1.0 + range_pct / 100.0
-	hand.range -= 10.0
+	#hand.range -= 10.0
 
 	hand.fire_rate /= 1.0 - fire_rate_pct / 100.0
-	hand.fire_rate -= 0.05
+	#hand.fire_rate -= 0.05
 
 	hand.spread /= 1.0 + spread_pct / 100.0
+	
 	hand.multishot -= multishot
+	
 	#hand.multishot = int(round(
 	#	hand.multishot / (1.0 + multishot_pct / 100.0)
 	#))

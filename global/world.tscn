@@ -1,52 +1,27 @@
-[gd_scene load_steps=49 format=3 uid="uid://cmbakut8gi6wr"]
+[gd_scene load_steps=24 format=3 uid="uid://cmbakut8gi6wr"]
 
 [ext_resource type="Script" uid="uid://c6a1khvjfi5gs" path="res://global/game.gd" id="1_0u0vk"]
 [ext_resource type="Script" uid="uid://bfr51lbfudv54" path="res://global/world.gd" id="1_a6aj0"]
 [ext_resource type="Script" uid="uid://b0p455xgsiaq0" path="res://global/ui_control.gd" id="1_fv8ub"]
 [ext_resource type="Texture2D" uid="uid://cd21iy4016am1" path="res://assets/floor.png" id="2_plbpi"]
-[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_rut1j"]
 [ext_resource type="PackedScene" uid="uid://bnk8kse82y108" path="res://objects/entities/player/player.tscn" id="3_k8ptx"]
-[ext_resource type="Resource" uid="uid://dskomauvmkj0r" path="res://upgrades/homing_upgrade.tres" id="3_st3rl"]
 [ext_resource type="Texture2D" uid="uid://e0oaaff1spe5" path="res://assets/cursor.png" id="4_kshyb"]
 [ext_resource type="Script" uid="uid://gwa3tv76fdot" path="res://global/cursor.gd" id="5_7n4u8"]
 [ext_resource type="Shader" uid="uid://b0hoy44a4u6hu" path="res://global/liquid_progressbar.gdshader" id="6_fv8ub"]
-[ext_resource type="Resource" uid="uid://cmoe5k0mlsc4f" path="res://upgrades/bounce_upgrade.tres" id="6_x2lfa"]
-[ext_resource type="Resource" uid="uid://beve1wu4xbpt5" path="res://upgrades/chain_upgrade.tres" id="7_j4okk"]
-[ext_resource type="Resource" uid="uid://d21kpsqvovhbn" path="res://upgrades/freeze_aspect_upgrade.tres" id="7_rut1j"]
 [ext_resource type="Texture2D" uid="uid://dsymd1s6pilcv" path="res://icon.svg" id="7_xn7c1"]
 [ext_resource type="PackedScene" uid="uid://cls1xxbi7k5ex" path="res://objects/entities/enemies/slime/slime.tscn" id="8_0u0vk"]
-[ext_resource type="Resource" uid="uid://bfq1jj45ru5h6" path="res://upgrades/decreasing_damage_upgrade.tres" id="8_f0c54"]
-[ext_resource type="Resource" uid="uid://dxatu7n1dtmag" path="res://upgrades/fire_aspect_upgrade.tres" id="8_st3rl"]
 [ext_resource type="Texture2D" uid="uid://dm0p34yfiuq3v" path="res://assets/manabar_under.png" id="10_kshyb"]
 [ext_resource type="Texture2D" uid="uid://vgaa6oy3ww1s" path="res://assets/manabar_progress.png" id="11_7n4u8"]
-[ext_resource type="Resource" uid="uid://edo0eye4y2yr" path="res://upgrades/gravity_cursor_upgrade.tres" id="11_21181"]
 [ext_resource type="Texture2D" uid="uid://cxbst0ev0ny5y" path="res://assets/healthbar_progress.png" id="11_fv8ub"]
-[ext_resource type="Resource" uid="uid://pj8w51dk6lwx" path="res://upgrades/gravity_fade_upgrade.tres" id="12_mm4nd"]
-[ext_resource type="Resource" uid="uid://dunbgjq2tew8r" path="res://upgrades/gravity_flight_upgrade.tres" id="13_w0txk"]
-[ext_resource type="Resource" uid="uid://b86c3ojq5b8tw" path="res://upgrades/gravity_hit_upgrade.tres" id="14_yym57"]
-[ext_resource type="Resource" uid="uid://cjd1veqho2il1" path="res://upgrades/increasing_damage_upgrade.tres" id="16_fquns"]
-[ext_resource type="Resource" uid="uid://dckkwhouwnedj" path="res://upgrades/merge_upgrade.tres" id="17_pw0ed"]
-[ext_resource type="Resource" uid="uid://brmrdmc28cdwu" path="res://upgrades/orbit_upgrade.tres" id="18_md8s5"]
-[ext_resource type="Resource" uid="uid://bg6hw3txxo65o" path="res://upgrades/pierce_upgrade.tres" id="19_2fwcc"]
-[ext_resource type="Resource" uid="uid://dw6rs2fabfca5" path="res://upgrades/puddle_flight_upgrade.tres" id="20_dfi73"]
-[ext_resource type="Resource" uid="uid://bpyf8wv7uan6e" path="res://upgrades/puddle_hit_upgrade.tres" id="21_cv5eo"]
-[ext_resource type="Resource" uid="uid://cgs50teeybiqt" path="res://upgrades/push_upgrade.tres" id="22_k0yem"]
-[ext_resource type="Resource" uid="uid://dktm7xv0llyqu" path="res://upgrades/random_damage_upgrade.tres" id="23_nn4r0"]
-[ext_resource type="Resource" uid="uid://cafs3f5jaqlwr" path="res://upgrades/random_stats_upgrade.tres" id="24_0bprg"]
-[ext_resource type="Resource" uid="uid://fglt637g6kmy" path="res://upgrades/sine_speed_upgrade.tres" id="25_mpein"]
-[ext_resource type="Resource" uid="uid://dxsqcoq3j6dg5" path="res://upgrades/sine_trajectory_upgrade.tres" id="26_1hwab"]
-[ext_resource type="Resource" uid="uid://nyetqmv73sfd" path="res://upgrades/speed_decay_upgrade.tres" id="27_yt1ev"]
-[ext_resource type="Resource" uid="uid://b4815q3op12va" path="res://upgrades/speed_growth_upgrade.tres" id="28_qmqkk"]
-[ext_resource type="Resource" uid="uid://didph0yhhe5c6" path="res://upgrades/spiral_upgrade.tres" id="29_r64o8"]
-[ext_resource type="Resource" uid="uid://qwuo5qfnjx3u" path="res://upgrades/super_hot_upgrade.tres" id="30_creys"]
-[ext_resource type="Resource" uid="uid://c848qustqimh6" path="res://upgrades/telekinesis_upgrade.tres" id="31_q4gqj"]
-[ext_resource type="Resource" uid="uid://bn7ehmi7ctnqc" path="res://upgrades/zigzag_upgrade.tres" id="32_hsqn2"]
-[ext_resource type="Resource" uid="uid://b7mcg5jqc1px3" path="res://upgrades/stats_upgrade_1.tres" id="33_41jhw"]
-[ext_resource type="Resource" uid="uid://8lk3vu01mxqf" path="res://upgrades/stats_upgrade_2.tres" id="34_m7q6n"]
-[ext_resource type="Resource" uid="uid://b6gl5ot1oyh11" path="res://upgrades/stats_upgrade_3.tres" id="35_csj1u"]
-[ext_resource type="Resource" uid="uid://b3ulwohq5627" path="res://upgrades/stats_upgrade_4.tres" id="36_ba5pe"]
-[ext_resource type="Resource" uid="uid://cftfbechiw50f" path="res://upgrades/stats_upgrade_5.tres" id="37_hhtn0"]
-[ext_resource type="Resource" uid="uid://cc4wutkuefgd5" path="res://upgrades/stats_upgrade_6.tres" id="38_xg4d3"]
+[ext_resource type="Texture2D" uid="uid://dbd3lscpc4216" path="res://assets/icons/damage_icon.png" id="12_mt1xl"]
+[ext_resource type="Theme" uid="uid://r3yp6lnnqb2o" path="res://misc/main_theme.tres" id="13_rut1j"]
+[ext_resource type="Texture2D" uid="uid://b02sx37syosro" path="res://assets/icon.png" id="14_st3rl"]
+[ext_resource type="Texture2D" uid="uid://t7imkgtacyd1" path="res://assets/icons/speed_icon.png" id="15_qe0n0"]
+[ext_resource type="Texture2D" uid="uid://c0bj6bn7t6igk" path="res://assets/icons/fire_rate_icon.png" id="16_r7phx"]
+[ext_resource type="Texture2D" uid="uid://iarkvpcwr0ps" path="res://assets/icons/health_icon.png" id="16_x2fqd"]
+[ext_resource type="Texture2D" uid="uid://cmksaavx8icax" path="res://assets/icons/multishot_icon.png" id="17_x2fqd"]
+[ext_resource type="Texture2D" uid="uid://lxpvmko2bdul" path="res://assets/icons/spread_icon.png" id="18_e0inb"]
+[ext_resource type="Texture2D" uid="uid://bpmdg41jwpc5n" path="res://assets/icons/mana_icon.png" id="20_x2fqd"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6ik0"]
 shader = ExtResource("6_fv8ub")
@@ -69,7 +44,9 @@ stretch_mode = 1
 
 [node name="Player" parent="World" instance=ExtResource("3_k8ptx")]
 position = Vector2(424, 184)
-all_upgrades = Array[ExtResource("2_rut1j")]([ExtResource("6_x2lfa"), ExtResource("7_j4okk"), ExtResource("8_f0c54"), ExtResource("8_st3rl"), ExtResource("7_rut1j"), ExtResource("11_21181"), ExtResource("12_mm4nd"), ExtResource("13_w0txk"), ExtResource("14_yym57"), ExtResource("3_st3rl"), ExtResource("16_fquns"), ExtResource("17_pw0ed"), ExtResource("18_md8s5"), ExtResource("19_2fwcc"), ExtResource("20_dfi73"), ExtResource("21_cv5eo"), ExtResource("22_k0yem"), ExtResource("23_nn4r0"), ExtResource("24_0bprg"), ExtResource("25_mpein"), ExtResource("26_1hwab"), ExtResource("27_yt1ev"), ExtResource("28_qmqkk"), ExtResource("29_r64o8"), ExtResource("30_creys"), ExtResource("31_q4gqj"), ExtResource("32_hsqn2"), ExtResource("33_41jhw"), ExtResource("34_m7q6n"), ExtResource("35_csj1u"), ExtResource("36_ba5pe"), ExtResource("37_hhtn0"), ExtResource("38_xg4d3")])
+
+[node name="Camera2D" parent="World/Player/CameraRig" index="0"]
+position_smoothing_speed = 10.0
 
 [node name="EntitiesLayer" type="CanvasLayer" parent="World"]
 follow_viewport_enabled = true
@@ -77,66 +54,22 @@ follow_viewport_enabled = true
 [node name="Slime" parent="World/EntitiesLayer" groups=["entities"] instance=ExtResource("8_0u0vk")]
 z_index = 0
 position = Vector2(168, 144)
-dash_speed = null
-dash_duration = null
-slide_duration = null
-dash_cooldown = null
-contact_damage = null
-bounce_force = null
-agro_range = null
-title = null
-move_speed = null
-acceleration = null
-friction = null
-max_health = null
+max_health = 100.0
 
 [node name="Slime2" parent="World/EntitiesLayer" groups=["entities"] instance=ExtResource("8_0u0vk")]
 z_index = 0
 position = Vector2(304, 72)
-dash_speed = null
-dash_duration = null
-slide_duration = null
-dash_cooldown = null
-contact_damage = null
-bounce_force = null
-agro_range = null
-title = null
-move_speed = null
-acceleration = null
-friction = null
-max_health = null
+max_health = 100.0
 
 [node name="Slime3" parent="World/EntitiesLayer" groups=["entities"] instance=ExtResource("8_0u0vk")]
 z_index = 0
 position = Vector2(224, 88)
-dash_speed = null
-dash_duration = null
-slide_duration = null
-dash_cooldown = null
-contact_damage = null
-bounce_force = null
-agro_range = null
-title = null
-move_speed = null
-acceleration = null
-friction = null
-max_health = null
+max_health = 100.0
 
 [node name="Slime4" parent="World/EntitiesLayer" groups=["entities"] instance=ExtResource("8_0u0vk")]
 z_index = 0
 position = Vector2(216, 224)
-dash_speed = null
-dash_duration = null
-slide_duration = null
-dash_cooldown = null
-contact_damage = null
-bounce_force = null
-agro_range = null
-title = null
-move_speed = null
-acceleration = null
-friction = null
-max_health = null
+max_health = 100.0
 
 [node name="Node" type="Node" parent="World/EntitiesLayer"]
 
@@ -158,27 +91,315 @@ layout_mode = 3
 anchors_preset = 0
 offset_top = -1.0
 offset_right = 640.0
-offset_bottom = 348.0
+offset_bottom = 360.0
 script = ExtResource("1_fv8ub")
 
-[node name="Manabar" type="TextureProgressBar" parent="UILayer/UIControl"]
-unique_name_in_owner = true
+[node name="ColorRect" type="ColorRect" parent="UILayer/UIControl"]
 layout_mode = 1
-offset_top = 12.0
-offset_right = 103.0
-offset_bottom = 25.0
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -322.0
+offset_top = -22.0
+offset_right = 323.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="UILayer/UIControl"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -323.5
+offset_right = 320.0
+offset_bottom = 22.0
+grow_horizontal = 2
+color = Color(0, 0, 0, 1)
+
+[node name="RightHandStats" type="HBoxContainer" parent="UILayer/UIControl"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -300.0
+offset_top = 2.0
+offset_right = -5.0
+offset_bottom = 20.0
+grow_horizontal = 0
+alignment = 2
+
+[node name="DamageContainer" type="HBoxContainer" parent="UILayer/UIControl/RightHandStats"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="DamageTexture" type="TextureRect" parent="UILayer/UIControl/RightHandStats/DamageContainer"]
+layout_mode = 2
+texture = ExtResource("12_mt1xl")
+stretch_mode = 3
+
+[node name="DamageLabel" type="Label" parent="UILayer/UIControl/RightHandStats/DamageContainer"]
+layout_mode = 2
+theme = ExtResource("13_rut1j")
+text = "000.0"
+horizontal_alignment = 1
+
+[node name="RangeContainer" type="HBoxContainer" parent="UILayer/UIControl/RightHandStats"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="RangeTexture" type="TextureRect" parent="UILayer/UIControl/RightHandStats/RangeContainer"]
+layout_mode = 2
+texture = ExtResource("14_st3rl")
+stretch_mode = 3
+
+[node name="RangeLabel" type="Label" parent="UILayer/UIControl/RightHandStats/RangeContainer"]
+layout_mode = 2
+theme = ExtResource("13_rut1j")
+text = "100.0"
+horizontal_alignment = 1
+
+[node name="SpeedContainer" type="HBoxContainer" parent="UILayer/UIControl/RightHandStats"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="SpeedTexture" type="TextureRect" parent="UILayer/UIControl/RightHandStats/SpeedContainer"]
+layout_mode = 2
+texture = ExtResource("15_qe0n0")
+stretch_mode = 3
+
+[node name="SpeedLabel" type="Label" parent="UILayer/UIControl/RightHandStats/SpeedContainer"]
+layout_mode = 2
+theme = ExtResource("13_rut1j")
+text = "000.0"
+horizontal_alignment = 1
+
+[node name="FireRateContainer" type="HBoxContainer" parent="UILayer/UIControl/RightHandStats"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="FireRateTexture" type="TextureRect" parent="UILayer/UIControl/RightHandStats/FireRateContainer"]
+layout_mode = 2
+texture = ExtResource("16_r7phx")
+stretch_mode = 3
+
+[node name="FireRateLabel" type="Label" parent="UILayer/UIControl/RightHandStats/FireRateContainer"]
+layout_mode = 2
+theme = ExtResource("13_rut1j")
+text = "000.0"
+horizontal_alignment = 1
+
+[node name="MultishotContainer" type="HBoxContainer" parent="UILayer/UIControl/RightHandStats"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MultishotTexture" type="TextureRect" parent="UILayer/UIControl/RightHandStats/MultishotContainer"]
+layout_mode = 2
+texture = ExtResource("17_x2fqd")
+stretch_mode = 3
+
+[node name="MultishotLabel" type="Label" parent="UILayer/UIControl/RightHandStats/MultishotContainer"]
+layout_mode = 2
+theme = ExtResource("13_rut1j")
+text = "00"
+horizontal_alignment = 1
+
+[node name="SpreadContainer" type="HBoxContainer" parent="UILayer/UIControl/RightHandStats"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="SpreadTexture" type="TextureRect" parent="UILayer/UIControl/RightHandStats/SpreadContainer"]
+layout_mode = 2
+texture = ExtResource("18_e0inb")
+stretch_mode = 3
+
+[node name="SpreadLabel" type="Label" parent="UILayer/UIControl/RightHandStats/SpreadContainer"]
+layout_mode = 2
+theme = ExtResource("13_rut1j")
+text = "0.0"
+horizontal_alignment = 1
+
+[node name="LeftHandStats" type="HBoxContainer" parent="UILayer/UIControl"]
+layout_mode = 1
+offset_left = 2.0
+offset_top = 2.0
+offset_right = 297.0
+offset_bottom = 20.0
+
+[node name="DamageContainer" type="HBoxContainer" parent="UILayer/UIControl/LeftHandStats"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="DamageTexture" type="TextureRect" parent="UILayer/UIControl/LeftHandStats/DamageContainer"]
+layout_mode = 2
+texture = ExtResource("12_mt1xl")
+stretch_mode = 3
+
+[node name="DamageLabel" type="Label" parent="UILayer/UIControl/LeftHandStats/DamageContainer"]
+layout_mode = 2
+theme = ExtResource("13_rut1j")
+text = "000.0"
+horizontal_alignment = 1
+
+[node name="RangeContainer" type="HBoxContainer" parent="UILayer/UIControl/LeftHandStats"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="RangeTexture" type="TextureRect" parent="UILayer/UIControl/LeftHandStats/RangeContainer"]
+layout_mode = 2
+texture = ExtResource("14_st3rl")
+stretch_mode = 3
+
+[node name="RangeLabel" type="Label" parent="UILayer/UIControl/LeftHandStats/RangeContainer"]
+layout_mode = 2
+theme = ExtResource("13_rut1j")
+text = "100.0"
+horizontal_alignment = 1
+
+[node name="SpeedContainer" type="HBoxContainer" parent="UILayer/UIControl/LeftHandStats"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="SpeedTexture" type="TextureRect" parent="UILayer/UIControl/LeftHandStats/SpeedContainer"]
+layout_mode = 2
+texture = ExtResource("15_qe0n0")
+stretch_mode = 3
+
+[node name="SpeedLabel" type="Label" parent="UILayer/UIControl/LeftHandStats/SpeedContainer"]
+layout_mode = 2
+theme = ExtResource("13_rut1j")
+text = "000.0"
+horizontal_alignment = 1
+
+[node name="FireRateContainer" type="HBoxContainer" parent="UILayer/UIControl/LeftHandStats"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="FireRateTexture" type="TextureRect" parent="UILayer/UIControl/LeftHandStats/FireRateContainer"]
+layout_mode = 2
+texture = ExtResource("16_r7phx")
+stretch_mode = 3
+
+[node name="FireRateLabel" type="Label" parent="UILayer/UIControl/LeftHandStats/FireRateContainer"]
+layout_mode = 2
+theme = ExtResource("13_rut1j")
+text = "000.0"
+horizontal_alignment = 1
+
+[node name="MultishotContainer" type="HBoxContainer" parent="UILayer/UIControl/LeftHandStats"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="MultishotTexture" type="TextureRect" parent="UILayer/UIControl/LeftHandStats/MultishotContainer"]
+layout_mode = 2
+texture = ExtResource("17_x2fqd")
+stretch_mode = 3
+
+[node name="MultishotLabel" type="Label" parent="UILayer/UIControl/LeftHandStats/MultishotContainer"]
+layout_mode = 2
+theme = ExtResource("13_rut1j")
+text = "00"
+horizontal_alignment = 1
+
+[node name="SpreadContainer" type="HBoxContainer" parent="UILayer/UIControl/LeftHandStats"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="SpreadTexture" type="TextureRect" parent="UILayer/UIControl/LeftHandStats/SpreadContainer"]
+layout_mode = 2
+texture = ExtResource("18_e0inb")
+stretch_mode = 3
+
+[node name="SpreadLabel" type="Label" parent="UILayer/UIControl/LeftHandStats/SpreadContainer"]
+layout_mode = 2
+theme = ExtResource("13_rut1j")
+text = "0.0"
+horizontal_alignment = 1
+
+[node name="HealthBarContainer" type="HBoxContainer" parent="UILayer/UIControl"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -158.0
+offset_top = -20.0
+offset_right = -3.0
+offset_bottom = -2.0
+grow_horizontal = 0
+grow_vertical = 0
+alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="UILayer/UIControl/HealthBarContainer"]
+layout_mode = 2
+texture = ExtResource("16_x2fqd")
+stretch_mode = 3
+
+[node name="HealthBar" type="TextureProgressBar" parent="UILayer/UIControl/HealthBarContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+value = 100.0
+texture_under = ExtResource("10_kshyb")
+texture_progress = ExtResource("11_fv8ub")
+
+[node name="HealthBarLabel" type="Label" parent="UILayer/UIControl/HealthBarContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("13_rut1j")
+text = "100/100"
+horizontal_alignment = 1
+
+[node name="ManaBarContainer" type="HBoxContainer" parent="UILayer/UIControl"]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 3.0
+offset_top = -20.0
+offset_right = 158.0
+offset_bottom = -2.0
+grow_vertical = 0
+theme_override_constants/separation = 4
+
+[node name="ManaBarLabel" type="Label" parent="UILayer/UIControl/ManaBarContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(54, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("13_rut1j")
+text = "100/100"
+horizontal_alignment = 1
+
+[node name="ManaBar" type="TextureProgressBar" parent="UILayer/UIControl/ManaBarContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
 value = 100.0
 texture_under = ExtResource("10_kshyb")
 texture_progress = ExtResource("11_7n4u8")
 
-[node name="HealthBar" type="TextureProgressBar" parent="UILayer/UIControl"]
-unique_name_in_owner = true
-layout_mode = 1
-offset_right = 103.0
-offset_bottom = 13.0
-value = 100.0
-texture_under = ExtResource("10_kshyb")
-texture_progress = ExtResource("11_fv8ub")
+[node name="TextureRect" type="TextureRect" parent="UILayer/UIControl/ManaBarContainer"]
+layout_mode = 2
+texture = ExtResource("20_x2fqd")
+stretch_mode = 3
 
 [node name="TextureRect" type="TextureRect" parent="UILayer"]
 visible = false

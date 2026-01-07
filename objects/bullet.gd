@@ -17,11 +17,11 @@ var range: float
 
 var damage: float:
 	set(value):
-		if value <= 5.0:
-			start_fade()
-			return
+		if value < 1.0:
+			value = 1.0
 		damage = value
 		scale = Vector2.ONE * (value / 10.0)
+
 
 var source: Entity
 
@@ -146,3 +146,4 @@ func disable_interaction() -> void:
 	area.monitorable = false
 	speed = 0
 	particle.emitting = false
+	%Light.hide()

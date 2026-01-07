@@ -13,7 +13,7 @@ metadata/_custom_type_script = "uid://c1ce1l8xvu30g"
 script = ExtResource("2_dvov7")
 title = "Ускорение"
 description = "Скорость снаряда возрастает после запуска
--100% скорости снаряда"
+-90% скорости снаряда"
 trajectory_modifiers = Array[ExtResource("3_65kje")]([SubResource("Resource_swcr5")])
-speed_pct = -100.0
+speed_pct = -90.0
 metadata/_custom_type_script = "uid://0gkyl55yqdti"

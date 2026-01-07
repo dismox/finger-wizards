@@ -1,0 +1,57 @@
+[gd_scene load_steps=8 format=3 uid="uid://3g07etv8q3g"]
+
+[ext_resource type="PackedScene" uid="uid://c233chmod5v87" path="res://objects/entities/enemies/enemy.tscn" id="1_gc1bb"]
+[ext_resource type="Texture2D" uid="uid://csfh1m8x33qiq" path="res://assets/fly.png" id="2_6wqve"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_518sa"]
+atlas = ExtResource("2_6wqve")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp2aj"]
+atlas = ExtResource("2_6wqve")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c5rhe"]
+atlas = ExtResource("2_6wqve")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8bk1m"]
+atlas = ExtResource("2_6wqve")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_thplk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_518sa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp2aj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c5rhe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8bk1m")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
+[node name="Fly" instance=ExtResource("1_gc1bb")]
+acceleration = 2.0
+friction = 100.0
+max_health = 11.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+self_modulate = Color(0.654902, 0, 0, 1)
+sprite_frames = SubResource("SpriteFrames_thplk")
+autoplay = "default"
+frame_progress = 0.90748817
+
+[node name="HitboxCollision" parent="HitboxArea" index="0"]
+visible = false
+
+[node name="HitboxCollision" parent="." index="2"]
+visible = false

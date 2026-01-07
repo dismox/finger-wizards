@@ -16,4 +16,6 @@ description = "Снаряды отталкивают врагов
 +30% урона
 -30% скорострельность"
 perks = Array[ExtResource("1_sat6l")]([SubResource("Resource_bgqjk")])
+damage_pct = 30.0
+fire_rate_pct = -30.0
 metadata/_custom_type_script = "uid://0gkyl55yqdti"

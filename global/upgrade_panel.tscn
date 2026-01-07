@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c7cfhsxstxnnt"]
+[gd_scene load_steps=9 format=3 uid="uid://c7cfhsxstxnnt"]
 
 [ext_resource type="Script" uid="uid://o4kdwfucakl0" path="res://global/upgrade_panel.gd" id="1_hmx0x"]
+[ext_resource type="Texture2D" uid="uid://b02sx37syosro" path="res://assets/icon.png" id="3_fdsx0"]
 [ext_resource type="Theme" uid="uid://r3yp6lnnqb2o" path="res://misc/main_theme.tres" id="3_gw064"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fv8ub"]
@@ -12,11 +13,104 @@ corner_radius_bottom_left = 5
 corner_detail = 5
 anti_aliasing = false
 
+[sub_resource type="Animation" id="Animation_gw064"]
+resource_name = "mouse_entered"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3),
+"transitions": PackedFloat32Array(0.24148409, 2.143547, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1.05, 1.05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.25, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.05235987755982989, 0.0, 0.03490658503988659, 0.0]
+}
+
+[sub_resource type="Animation" id="Animation_fdsx0"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_0wq2h"]
+resource_name = "mouse_exited"
+length = 0.3
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("..:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.17075506, 0.24148409),
+"update": 0,
+"values": [Vector2(1.05, 1.05), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("..:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0wq2h"]
+_data = {
+&"RESET": SubResource("Animation_fdsx0"),
+&"mouse_entered": SubResource("Animation_gw064"),
+&"mouse_exited": SubResource("Animation_0wq2h")
+}
+
 [node name="UpgradePanel" type="Control"]
 layout_mode = 3
 anchors_preset = 0
-offset_right = 155.0
+offset_right = 191.0
 offset_bottom = 233.0
+pivot_offset = Vector2(95, 116)
 script = ExtResource("1_hmx0x")
 
 [node name="Panel" type="Panel" parent="."]
@@ -44,6 +138,14 @@ theme = ExtResource("3_gw064")
 text = "Название"
 horizontal_alignment = 1
 
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer/TitleLabel"]
+visible = false
+layout_mode = 0
+offset_right = 16.0
+offset_bottom = 16.0
+texture = ExtResource("3_fdsx0")
+stretch_mode = 2
+
 [node name="DescriptionLabel" type="Label" parent="Panel/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -67,4 +169,12 @@ layout_mode = 2
 theme = ExtResource("3_gw064")
 text = "взять"
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Panel")
+libraries = {
+&"": SubResource("AnimationLibrary_0wq2h")
+}
+
+[connection signal="mouse_entered" from="Panel" to="." method="_on_panel_mouse_entered"]
+[connection signal="mouse_exited" from="Panel" to="." method="_on_panel_mouse_exited"]
 [connection signal="pressed" from="Panel/VBoxContainer/MarginContainer/Button" to="." method="_on_button_pressed"]

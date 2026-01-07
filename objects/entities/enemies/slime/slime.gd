@@ -9,7 +9,7 @@ class_name SlimeEnemy
 @export var contact_damage: float = 20.0
 @export var bounce_force: float = 150.0        # сила отскока
 
-var phase: String = "idle"                     # idle → dash → slide → cooldown
+var phase: String = "cooldown"                     # idle → dash → slide → cooldown
 var phase_timer: float = 0.0
 var dash_direction: Vector2 = Vector2.ZERO
 
@@ -63,7 +63,7 @@ func _physics_process(delta: float) -> void:
 
 func _start_dash(direction: Vector2) -> void:
 	Game.spawn_radial_bullets(bullet_scene, global_position,
-	5, self, 30.0 * scale.x, 100.0 / scale.x, 400.0 * scale.x, randf() * TAU)
+	4, self, 30.0 * scale.x, 100.0 / scale.x, 400.0 * scale.x, randf() * TAU, [])
 	
 	phase = "dash"
 	phase_timer = dash_duration
@@ -123,10 +123,10 @@ func apply_damage(amount: float) -> void:
 	Game.spawn_paddle(global_position, Game.Puddle_type.GREEN, Vector2(0.5, scale.x))
 
 func _die() -> void:
-	if max_health > 20.0:
+	if max_health > 15.0:
 		for i in range (2):
 			var scene: PackedScene = load("res://objects/entities/enemies/slime/slime.tscn")
 			var new_slime = Game.spawn_entity(scene, global_position + Vector2(10 * i, 10 * i))
 			new_slime.scale = scale / 1.5
-			new_slime.max_health = clamp(max_health - 40.0, 1.0, max_health - 40.0)
+			new_slime.max_health = max_health/2.0 #clamp(max_health - 40.0, 1.0, max_health - 40.0)
 	super._die()

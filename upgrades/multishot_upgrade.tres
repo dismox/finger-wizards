@@ -8,9 +8,11 @@
 script = ExtResource("2_kvfw7")
 title = "Мультшот"
 description = "+2 мультишот
-+50% разброс
--50% дальность"
-range_pct = -50.0
-spread_pct = 50.0
++10% разброс
+-20% урон
+-25% дальность"
+damage_pct = -20.0
+range_pct = -25.0
+spread_pct = 10.0
 multishot = 2
 metadata/_custom_type_script = "uid://0gkyl55yqdti"

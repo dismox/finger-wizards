@@ -154,5 +154,8 @@ anim_offset_max = 1.0
 [node name="Sprite" parent="." index="3"]
 sprite_frames = SubResource("SpriteFrames_tdvya")
 
+[node name="Light" parent="." index="4"]
+color = Color(0, 0.41155484, 0.07245798, 1)
+
 [node name="HitParticle" parent="." index="5"]
 color = Color(0, 1, 0, 1)

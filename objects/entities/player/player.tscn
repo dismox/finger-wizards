@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://bnk8kse82y108"]
+[gd_scene load_steps=58 format=3 uid="uid://bnk8kse82y108"]
 
 [ext_resource type="Script" uid="uid://btar5n6xuetpi" path="res://objects/entities/player/player.gd" id="1_4flbx"]
 [ext_resource type="Texture2D" uid="uid://bfs8tjekcbsgw" path="res://assets/shadow.png" id="2_7cdlc"]
@@ -36,7 +36,16 @@
 [ext_resource type="Resource" uid="uid://cgs50teeybiqt" path="res://upgrades/push_upgrade.tres" id="19_jwunf"]
 [ext_resource type="Resource" uid="uid://dktm7xv0llyqu" path="res://upgrades/random_damage_upgrade.tres" id="20_k6gdf"]
 [ext_resource type="Resource" uid="uid://cafs3f5jaqlwr" path="res://upgrades/random_stats_upgrade.tres" id="21_yqtn1"]
+[ext_resource type="Resource" uid="uid://dgc6weefmyiuh" path="res://upgrades/shotgun_upgrade.tres" id="23_7i7pc"]
 [ext_resource type="Resource" uid="uid://qwuo5qfnjx3u" path="res://upgrades/super_hot_upgrade.tres" id="27_7r56c"]
+[ext_resource type="Resource" uid="uid://b7mcg5jqc1px3" path="res://upgrades/stats_upgrade_1.tres" id="29_xfrni"]
+[ext_resource type="Resource" uid="uid://8lk3vu01mxqf" path="res://upgrades/stats_upgrade_2.tres" id="30_7843a"]
+[ext_resource type="Resource" uid="uid://cpwrj0udu7m0d" path="res://upgrades/multishot_upgrade.tres" id="30_ghma6"]
+[ext_resource type="Resource" uid="uid://b6gl5ot1oyh11" path="res://upgrades/stats_upgrade_3.tres" id="31_o1bp3"]
+[ext_resource type="Resource" uid="uid://b3ulwohq5627" path="res://upgrades/stats_upgrade_4.tres" id="32_jwunf"]
+[ext_resource type="Resource" uid="uid://cftfbechiw50f" path="res://upgrades/stats_upgrade_5.tres" id="33_k6gdf"]
+[ext_resource type="Resource" uid="uid://cc4wutkuefgd5" path="res://upgrades/stats_upgrade_6.tres" id="34_yqtn1"]
+[ext_resource type="Resource" uid="uid://bf4vacc5l20a4" path="res://upgrades/circleshot_upgrade.tres" id="38_xfrni"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b26j0"]
 radius = 9.848858
@@ -162,7 +171,7 @@ _data = {
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_4flbx")
-all_upgrades = Array[ExtResource("2_ywlym")]([ExtResource("3_bg3k4"), ExtResource("4_inbqy"), ExtResource("5_ghma6"), ExtResource("3_hv0uu"), ExtResource("4_ynd4r"), ExtResource("8_fmajr"), ExtResource("9_woljv"), ExtResource("10_nid2c"), ExtResource("11_app4b"), ExtResource("5_3vepp"), ExtResource("13_fnena"), ExtResource("14_7i7pc"), ExtResource("6_2ikky"), ExtResource("16_xfrni"), ExtResource("17_7843a"), ExtResource("18_o1bp3"), ExtResource("19_jwunf"), ExtResource("20_k6gdf"), ExtResource("21_yqtn1"), ExtResource("7_jkcoh"), ExtResource("8_rq4s4"), ExtResource("9_a5ium"), ExtResource("10_r5uv3"), ExtResource("11_xlyga"), ExtResource("27_7r56c"), ExtResource("12_4yvtw"), ExtResource("13_s5f1v")])
+all_upgrades = Array[ExtResource("2_ywlym")]([ExtResource("3_bg3k4"), ExtResource("4_inbqy"), ExtResource("5_ghma6"), ExtResource("3_hv0uu"), ExtResource("4_ynd4r"), ExtResource("8_fmajr"), ExtResource("9_woljv"), ExtResource("10_nid2c"), ExtResource("11_app4b"), ExtResource("5_3vepp"), ExtResource("13_fnena"), ExtResource("14_7i7pc"), ExtResource("30_ghma6"), ExtResource("6_2ikky"), ExtResource("16_xfrni"), ExtResource("17_7843a"), ExtResource("18_o1bp3"), ExtResource("19_jwunf"), ExtResource("20_k6gdf"), ExtResource("21_yqtn1"), ExtResource("23_7i7pc"), ExtResource("7_jkcoh"), ExtResource("8_rq4s4"), ExtResource("9_a5ium"), ExtResource("10_r5uv3"), ExtResource("11_xlyga"), ExtResource("29_xfrni"), ExtResource("30_7843a"), ExtResource("31_o1bp3"), ExtResource("32_jwunf"), ExtResource("33_k6gdf"), ExtResource("34_yqtn1"), ExtResource("27_7r56c"), ExtResource("12_4yvtw"), ExtResource("13_s5f1v"), ExtResource("38_xfrni")])
 
 [node name="TextureRect" type="Sprite2D" parent="."]
 z_index = -1
@@ -195,10 +204,6 @@ frame_progress = 0.9958453
 offset = Vector2(0, -2)
 script = ExtResource("6_dw050")
 signal_type = "shoot_left_hand"
-damage = 20.0
-speed = 150.0
-range = 200.0
-fire_rate = 0.25
 player = NodePath("../../..")
 bullet_point = NodePath("LeftHandPoint")
 particle = NodePath("LeftHandPoint/LeftHandParticle")
@@ -246,10 +251,6 @@ offset = Vector2(0, -2)
 flip_h = true
 script = ExtResource("6_dw050")
 signal_type = "shoot_right_hand"
-damage = 20.0
-speed = 150.0
-range = 200.0
-fire_rate = 0.25
 player = NodePath("../../..")
 bullet_point = NodePath("RightHandPoint")
 particle = NodePath("RightHandPoint/RightHandParticle")
@@ -293,9 +294,10 @@ autoplay = "idle"
 script = ExtResource("6_2hs0m")
 
 [node name="Camera2D" type="Camera2D" parent="CameraRig"]
+position_smoothing_enabled = true
+editor_draw_limits = true
+editor_draw_drag_margin = true
 
 [node name="HitboxCollision" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 3)
 shape = SubResource("CircleShape2D_b26j0")
-disabled = true

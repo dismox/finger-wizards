@@ -43,6 +43,7 @@ dash_cooldown = 1.8
 contact_damage = 20.0
 bounce_force = 150.0
 bullet_scene = ExtResource("3_3q76w")
+max_health = 40.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 sprite_frames = SubResource("SpriteFrames_k3vya")
