@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Upgrade" load_steps=6 format=3 uid="uid://c848qustqimh6"]
+[gd_resource type="Resource" script_class="Upgrade" load_steps=7 format=3 uid="uid://c848qustqimh6"]
 
+[ext_resource type="PackedScene" uid="uid://cqnapx26hbrcv" path="res://objects/mindball.tscn" id="1_q3i50"]
 [ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_r7lq5"]
 [ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_tg4pn"]
 [ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_q3i50"]
@@ -14,4 +15,5 @@ script = ExtResource("2_tg4pn")
 title = "Телекинез"
 description = "Снаряды движутся к курсору"
 trajectory_modifiers = Array[ExtResource("3_q3i50")]([SubResource("Resource_q3i50")])
+aspect_change = ExtResource("1_q3i50")
 metadata/_custom_type_script = "uid://0gkyl55yqdti"

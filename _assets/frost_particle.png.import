@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://wlfl35buagxp"
-path="res://.godot/imported/right_sleeve.png-948beb2828775aafa2952fb5c0c0e0db.ctex"
+uid="uid://02pawl0vmk3x"
+path="res://.godot/imported/frost_particle.png-77cecbd29a2bcdb2c95620f091e50440.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/wizard/right_sleeve.png"
-dest_files=["res://.godot/imported/right_sleeve.png-948beb2828775aafa2952fb5c0c0e0db.ctex"]
+source_file="res://_assets/frost_particle.png"
+dest_files=["res://.godot/imported/frost_particle.png-77cecbd29a2bcdb2c95620f091e50440.ctex"]
 
 [params]
 

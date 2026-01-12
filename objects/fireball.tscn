@@ -12,7 +12,7 @@ particles_anim_v_frames = 2
 particles_anim_loop = true
 
 [sub_resource type="Curve" id="Curve_uowv8"]
-_data = [Vector2(0, 0.62560004), 0.0, 0.0, 0, 0, Vector2(0.476, 0.5008001), 0.0, 0.0, 0, 0, Vector2(0.98399997, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0.37078655), 0.0, 0.0, 0, 0, Vector2(0.4918699, 0.46067423), 0.0, 0.0, 0, 0, Vector2(0.98399997, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_vjs1x"]

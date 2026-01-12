@@ -1,17 +1,14 @@
-[gd_scene load_steps=58 format=3 uid="uid://bnk8kse82y108"]
+[gd_scene load_steps=61 format=3 uid="uid://bnk8kse82y108"]
 
 [ext_resource type="Script" uid="uid://btar5n6xuetpi" path="res://objects/entities/player/player.gd" id="1_4flbx"]
 [ext_resource type="Texture2D" uid="uid://bfs8tjekcbsgw" path="res://assets/shadow.png" id="2_7cdlc"]
-[ext_resource type="Texture2D" uid="uid://bv2h2lxpol8dp" path="res://assets/wizard/wizard.png" id="2_sweqy"]
 [ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_ywlym"]
-[ext_resource type="Texture2D" uid="uid://df5udckdw8jq5" path="res://assets/wizard/left_sleeve.png" id="3_2hs0m"]
 [ext_resource type="Resource" uid="uid://cmoe5k0mlsc4f" path="res://upgrades/bounce_upgrade.tres" id="3_bg3k4"]
 [ext_resource type="Resource" uid="uid://dxatu7n1dtmag" path="res://upgrades/fire_aspect_upgrade.tres" id="3_hv0uu"]
 [ext_resource type="Texture2D" uid="uid://brt32oejtcgd8" path="res://assets/wizard/hand.png" id="4_1jxqw"]
 [ext_resource type="Resource" uid="uid://beve1wu4xbpt5" path="res://upgrades/chain_upgrade.tres" id="4_inbqy"]
 [ext_resource type="Resource" uid="uid://d21kpsqvovhbn" path="res://upgrades/freeze_aspect_upgrade.tres" id="4_ynd4r"]
 [ext_resource type="Resource" uid="uid://dskomauvmkj0r" path="res://upgrades/homing_upgrade.tres" id="5_3vepp"]
-[ext_resource type="Texture2D" uid="uid://wlfl35buagxp" path="res://assets/wizard/right_sleeve.png" id="5_dw050"]
 [ext_resource type="Resource" uid="uid://bfq1jj45ru5h6" path="res://upgrades/decreasing_damage_upgrade.tres" id="5_ghma6"]
 [ext_resource type="Script" uid="uid://dm8bev2ea7w44" path="res://global/camera_rig.gd" id="6_2hs0m"]
 [ext_resource type="Resource" uid="uid://brmrdmc28cdwu" path="res://upgrades/orbit_upgrade.tres" id="6_2ikky"]
@@ -24,7 +21,6 @@
 [ext_resource type="Resource" uid="uid://dunbgjq2tew8r" path="res://upgrades/gravity_flight_upgrade.tres" id="10_nid2c"]
 [ext_resource type="Resource" uid="uid://b4815q3op12va" path="res://upgrades/speed_growth_upgrade.tres" id="10_r5uv3"]
 [ext_resource type="Resource" uid="uid://b86c3ojq5b8tw" path="res://upgrades/gravity_hit_upgrade.tres" id="11_app4b"]
-[ext_resource type="PackedScene" uid="uid://cy1ggtpnudmp6" path="res://objects/bullet.tscn" id="11_jgh0o"]
 [ext_resource type="Resource" uid="uid://didph0yhhe5c6" path="res://upgrades/spiral_upgrade.tres" id="11_xlyga"]
 [ext_resource type="Resource" uid="uid://c848qustqimh6" path="res://upgrades/telekinesis_upgrade.tres" id="12_4yvtw"]
 [ext_resource type="Resource" uid="uid://cjd1veqho2il1" path="res://upgrades/increasing_damage_upgrade.tres" id="13_fnena"]
@@ -46,30 +42,49 @@
 [ext_resource type="Resource" uid="uid://cftfbechiw50f" path="res://upgrades/stats_upgrade_5.tres" id="33_k6gdf"]
 [ext_resource type="Resource" uid="uid://cc4wutkuefgd5" path="res://upgrades/stats_upgrade_6.tres" id="34_yqtn1"]
 [ext_resource type="Resource" uid="uid://bf4vacc5l20a4" path="res://upgrades/circleshot_upgrade.tres" id="38_xfrni"]
+[ext_resource type="Texture2D" uid="uid://bwu3pou0bngiy" path="res://assets/wizard/_wizard.png" id="40_xfrni"]
+[ext_resource type="Texture2D" uid="uid://biwr4ifaa0bgg" path="res://assets/wizard/_left_sleeve.png" id="41_7843a"]
+[ext_resource type="PackedScene" uid="uid://cy1ggtpnudmp6" path="res://objects/bullet.tscn" id="44_xfrni"]
+[ext_resource type="Texture2D" uid="uid://blaimj6k38wfd" path="res://assets/wizard/_right_sleeve.png" id="45_o1bp3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b26j0"]
-radius = 9.848858
+radius = 11.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_n7ghd"]
-atlas = ExtResource("2_sweqy")
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwunf"]
+atlas = ExtResource("40_xfrni")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nvl01"]
-atlas = ExtResource("2_sweqy")
+[sub_resource type="AtlasTexture" id="AtlasTexture_k6gdf"]
+atlas = ExtResource("40_xfrni")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_ivps1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_n7ghd")
+"texture": SubResource("AtlasTexture_jwunf")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nvl01")
+"texture": SubResource("AtlasTexture_k6gdf")
 }],
 "loop": true,
 "name": &"default",
-"speed": 2.0
+"speed": 6.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqtn1"]
+atlas = ExtResource("41_7843a")
+region = Rect2(0, 0, 7, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_j162y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqtn1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
 }]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_psowp"]
@@ -101,7 +116,18 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 4.0
+"speed": 3.0
+}]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7apco"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("45_o1bp3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
 }]
 
 [sub_resource type="Animation" id="Animation_606se"]
@@ -174,6 +200,7 @@ script = ExtResource("1_4flbx")
 all_upgrades = Array[ExtResource("2_ywlym")]([ExtResource("3_bg3k4"), ExtResource("4_inbqy"), ExtResource("5_ghma6"), ExtResource("3_hv0uu"), ExtResource("4_ynd4r"), ExtResource("8_fmajr"), ExtResource("9_woljv"), ExtResource("10_nid2c"), ExtResource("11_app4b"), ExtResource("5_3vepp"), ExtResource("13_fnena"), ExtResource("14_7i7pc"), ExtResource("30_ghma6"), ExtResource("6_2ikky"), ExtResource("16_xfrni"), ExtResource("17_7843a"), ExtResource("18_o1bp3"), ExtResource("19_jwunf"), ExtResource("20_k6gdf"), ExtResource("21_yqtn1"), ExtResource("23_7i7pc"), ExtResource("7_jkcoh"), ExtResource("8_rq4s4"), ExtResource("9_a5ium"), ExtResource("10_r5uv3"), ExtResource("11_xlyga"), ExtResource("29_xfrni"), ExtResource("30_7843a"), ExtResource("31_o1bp3"), ExtResource("32_jwunf"), ExtResource("33_k6gdf"), ExtResource("34_yqtn1"), ExtResource("27_7r56c"), ExtResource("12_4yvtw"), ExtResource("13_s5f1v"), ExtResource("38_xfrni")])
 
 [node name="TextureRect" type="Sprite2D" parent="."]
+visible = false
 z_index = -1
 position = Vector2(0, 12.000001)
 scale = Vector2(2.1875, 1.5)
@@ -189,25 +216,27 @@ shape = SubResource("CircleShape2D_b26j0")
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_ivps1")
 autoplay = "default"
-frame_progress = 0.8912503
+frame_progress = 0.40851286
 
-[node name="LeftSleeve" type="Sprite2D" parent="AnimatedSprite2D"]
+[node name="LeftSleeve" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
 position = Vector2(-9, 5)
-texture = ExtResource("3_2hs0m")
+sprite_frames = SubResource("SpriteFrames_j162y")
+autoplay = "default"
+frame_progress = 0.72453314
 
 [node name="LeftHand" type="AnimatedSprite2D" parent="AnimatedSprite2D/LeftSleeve" node_paths=PackedStringArray("player", "bullet_point", "particle")]
 texture_filter = 1
-position = Vector2(3, 1)
+position = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_urp6f")
 autoplay = "default"
-frame_progress = 0.9958453
+frame_progress = 0.32987705
 offset = Vector2(0, -2)
 script = ExtResource("6_dw050")
 signal_type = "shoot_left_hand"
 player = NodePath("../../..")
 bullet_point = NodePath("LeftHandPoint")
 particle = NodePath("LeftHandPoint/LeftHandParticle")
-bullet_scene = ExtResource("11_jgh0o")
+bullet_scene = ExtResource("44_xfrni")
 
 [node name="LeftHandPoint" type="Marker2D" parent="AnimatedSprite2D/LeftSleeve/LeftHand"]
 
@@ -237,24 +266,26 @@ damping_min = 44.444
 damping_max = 44.444
 color = Color(0, 0, 1, 1)
 
-[node name="RightSleeve" type="Sprite2D" parent="AnimatedSprite2D"]
+[node name="RightSleeve" type="AnimatedSprite2D" parent="AnimatedSprite2D"]
 position = Vector2(8, 5)
-texture = ExtResource("5_dw050")
+sprite_frames = SubResource("SpriteFrames_7apco")
+autoplay = "default"
+frame_progress = 0.4049886
 
 [node name="RightHand" type="AnimatedSprite2D" parent="AnimatedSprite2D/RightSleeve" node_paths=PackedStringArray("player", "bullet_point", "particle")]
 texture_filter = 1
-position = Vector2(-2, 0)
+position = Vector2(-1, 1)
 sprite_frames = SubResource("SpriteFrames_urp6f")
 autoplay = "default"
 frame_progress = 0.030280303
-offset = Vector2(0, -2)
+offset = Vector2(-1, -2)
 flip_h = true
 script = ExtResource("6_dw050")
 signal_type = "shoot_right_hand"
 player = NodePath("../../..")
 bullet_point = NodePath("RightHandPoint")
 particle = NodePath("RightHandPoint/RightHandParticle")
-bullet_scene = ExtResource("11_jgh0o")
+bullet_scene = ExtResource("44_xfrni")
 
 [node name="RightHandPoint" type="Marker2D" parent="AnimatedSprite2D/RightSleeve/RightHand"]
 

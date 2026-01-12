@@ -9,7 +9,7 @@ func _ready() -> void:
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_pressed("spawn_enemies"):
-		Game.spawn_entity(load("res://objects/entities/enemies/fly/fly.tscn"), Vector2(randf()*10,randf()*10))
+		Game.spawn_entity(load("res://objects/entities/enemies/slime/slime.tscn"), Vector2(randf()*10,randf()*10))
 	if Input.is_action_pressed("upgrade"):
 		if current_upgrade == null:
 			var scene: PackedScene = load("res://global/upgrades_choise.tscn")

@@ -9,11 +9,9 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_2b2rl"]
 radius = 3.0000007
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_v8qja"]
-particles_animation = true
-particles_anim_h_frames = 6
-particles_anim_v_frames = 1
-particles_anim_loop = true
+[sub_resource type="Curve" id="Curve_rsjgb"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.2601626, 1), 0.0, 0.0, 0, 0, Vector2(0.52845526, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ucnj8"]
 atlas = ExtResource("3_xbcx7")
@@ -127,6 +125,7 @@ point_count = 3
 top_level = true
 z_index = 20
 script = ExtResource("1_3ndsa")
+main_color = Color(0.32941177, 0.23529412, 0.54901963, 1)
 
 [node name="TextureRect" type="Sprite2D" parent="."]
 visible = false
@@ -143,12 +142,10 @@ shape = SubResource("CircleShape2D_2b2rl")
 
 [node name="Particle" type="CPUParticles2D" parent="."]
 z_index = -1
-material = SubResource("CanvasItemMaterial_v8qja")
 scale = Vector2(0.5, 0.5)
 amount = 30
-texture = ExtResource("2_xbcx7")
+texture = ExtResource("5_rsjgb")
 preprocess = 0.02
-explosiveness = 1.0
 randomness = 1.0
 lifetime_randomness = 1.0
 local_coords = true
@@ -170,7 +167,8 @@ damping_min = 44.444
 damping_max = 44.444
 scale_amount_min = 0.5
 scale_amount_max = 0.5
-color = Color(0, 0, 1, 1)
+scale_amount_curve = SubResource("Curve_rsjgb")
+color = Color(0.29803923, 0, 1, 1)
 anim_speed_max = 7.76
 
 [node name="Sprite" type="AnimatedSprite2D" parent="."]
@@ -183,7 +181,7 @@ unique_name_in_owner = true
 position = Vector2(1.7881393e-07, 1.1920929e-07)
 scale = Vector2(0.9375, 0.9375)
 color = Color(0, 0, 1, 1)
-energy = 2.6
+energy = 8.52
 texture = SubResource("GradientTexture2D_t4vbm")
 texture_scale = 0.2
 
@@ -218,6 +216,7 @@ damping_max = 44.444
 scale_amount_min = 0.5
 scale_amount_max = 0.5
 scale_amount_curve = SubResource("Curve_4agyf")
-color = Color(0, 0, 1, 1)
+color = Color(0.29803923, 0, 1, 1)
 
 [connection signal="area_entered" from="BulletArea" to="." method="_on_bullet_area_area_entered"]
+[connection signal="body_entered" from="BulletArea" to="." method="_on_bullet_area_body_entered"]

@@ -1,5 +1,6 @@
-[gd_resource type="Resource" script_class="Upgrade" load_steps=6 format=3 uid="uid://dskomauvmkj0r"]
+[gd_resource type="Resource" script_class="Upgrade" load_steps=7 format=3 uid="uid://dskomauvmkj0r"]
 
+[ext_resource type="PackedScene" uid="uid://cqnapx26hbrcv" path="res://objects/mindball.tscn" id="1_psfwh"]
 [ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_tbnpa"]
 [ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_psfwh"]
 [ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_ckvyk"]
@@ -18,4 +19,5 @@ description = "Снаряды направляются к ближайшим ц�
 trajectory_modifiers = Array[ExtResource("3_ckvyk")]([SubResource("Resource_lndan")])
 damage_pct = -25.0
 range_pct = 25.0
+aspect_change = ExtResource("1_psfwh")
 metadata/_custom_type_script = "uid://0gkyl55yqdti"

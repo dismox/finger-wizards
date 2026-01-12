@@ -48,7 +48,7 @@ func _physics_process(delta: float) -> void:
 	_process_shooting()
 
 func shoot() -> void:
-	player.camera_rig.shake(0.1, damage)
+	player.camera_rig.shake(0.1, damage * 2.0)
 	particle.emitting = true
 	
 	for i in range (1 + multishot):

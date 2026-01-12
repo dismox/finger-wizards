@@ -1,7 +1,7 @@
 extends BulletPerk
 class_name MergePerk
 
-@export var damage_add: float = 0.25       # множитель сложения
+@export var damage_add: float = 1.00       # множитель сложения
 @export var range_add: float = 0.0
 @export var speed_keep: bool = true       # скорость не суммируем
 @export var scale_by_damage: bool = true

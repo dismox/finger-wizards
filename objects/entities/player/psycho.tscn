@@ -1,0 +1,100 @@
+[gd_scene load_steps=18 format=3 uid="uid://cugy6f3j8dnok"]
+
+[ext_resource type="PackedScene" uid="uid://bnk8kse82y108" path="res://objects/entities/player/player.tscn" id="1_gp0v7"]
+[ext_resource type="Texture2D" uid="uid://gailu6o74ua2" path="res://assets/wizard/psycho_wizard.png" id="2_jfcq4"]
+[ext_resource type="Texture2D" uid="uid://v7dy4xibc856" path="res://assets/wizard/psycho_left_sleeve.png" id="3_jfcq4"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="4_ou456"]
+[ext_resource type="Texture2D" uid="uid://d1vv36yhxui8d" path="res://assets/wizard/psycho_right_sleeve.png" id="4_q8ftk"]
+[ext_resource type="Script" uid="uid://b5mes01e7m7x6" path="res://modifiers/trajectory_modifiers/trajectory_homing.gd" id="5_m6ejc"]
+[ext_resource type="PackedScene" uid="uid://cqnapx26hbrcv" path="res://objects/mindball.tscn" id="6_4n72m"]
+[ext_resource type="Script" uid="uid://btwsbcqmbhh66" path="res://modifiers/trajectory_modifiers/trajectory_homing_cursor.gd" id="8_w1jil"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8ftk"]
+atlas = ExtResource("2_jfcq4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imudb"]
+atlas = ExtResource("2_jfcq4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oec2i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8ftk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imudb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oec2i"]
+atlas = ExtResource("3_jfcq4")
+region = Rect2(0, 0, 7, 11)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7whgg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oec2i")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="Resource" id="Resource_oli65"]
+script = ExtResource("5_m6ejc")
+metadata/_custom_type_script = "uid://b5mes01e7m7x6"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7whgg"]
+atlas = ExtResource("4_q8ftk")
+region = Rect2(0, 0, 7, 10)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ou456"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7whgg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="Resource" id="Resource_b3knl"]
+script = ExtResource("8_w1jil")
+metadata/_custom_type_script = "uid://btwsbcqmbhh66"
+
+[node name="Player" instance=ExtResource("1_gp0v7")]
+
+[node name="HitboxArea" parent="." index="1"]
+position = Vector2(0, 1)
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+sprite_frames = SubResource("SpriteFrames_oec2i")
+frame_progress = 0.028689358
+
+[node name="LeftSleeve" parent="AnimatedSprite2D" index="0"]
+sprite_frames = SubResource("SpriteFrames_7whgg")
+frame_progress = 0.0
+
+[node name="LeftHand" parent="AnimatedSprite2D/LeftSleeve" index="0"]
+speed = 150.0
+trajectory_modifiers = Array[ExtResource("4_ou456")]([SubResource("Resource_oli65")])
+bullet_scene = ExtResource("6_4n72m")
+
+[node name="RightSleeve" parent="AnimatedSprite2D" index="1"]
+sprite_frames = SubResource("SpriteFrames_ou456")
+frame_progress = 0.0
+
+[node name="RightHand" parent="AnimatedSprite2D/RightSleeve" index="0"]
+speed = 150.0
+trajectory_modifiers = Array[ExtResource("4_ou456")]([SubResource("Resource_b3knl")])
+bullet_scene = ExtResource("6_4n72m")
+
+[node name="HitboxCollision" parent="." index="5"]
+position = Vector2(0, 4)

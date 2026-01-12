@@ -131,7 +131,7 @@ func start_fade() -> void:
 	state = BulletState.FADING
 	disable_interaction()
 	emit_signal("faded", self)
-	Game.spawn_paddle(global_position, puddle_type, Vector2(0.5, scale.x/2))
+	#Game.spawn_paddle(global_position, puddle_type, Vector2(0.5, scale.x/2))
 
 	if !beam:
 		sprite.play("fade")
@@ -147,3 +147,8 @@ func disable_interaction() -> void:
 	speed = 0
 	particle.emitting = false
 	%Light.hide()
+
+
+func _on_bullet_area_body_entered(body: Node2D) -> void:
+	if not body is Entity:
+		start_fade()

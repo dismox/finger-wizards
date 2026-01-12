@@ -8,7 +8,7 @@
 script = ExtResource("2_t4jti")
 title = "Круговой выстрел"
 description = "Вместо направленной стрельбы вы стреляете вокруг себя в разных направленях"
-damage_pct = -90.0
+damage_pct = -50.0
 fire_rate_pct = -90.0
 spread_pct = 100.0
 multishot = 20

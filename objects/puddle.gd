@@ -14,13 +14,13 @@ func initiate(_type: Game.Puddle_type, min_scale: float = 0.5) -> void:
 		Game.Puddle_type.BLACK:
 			modulate = Color(0.0, 0.0, 0.0, 0.3)
 		Game.Puddle_type.GREEN:
-			modulate = Color(0.2, random_color, 0.2, 0.5)
+			modulate = Color(0.0, 0.118, 0.099, 1.0)
 		Game.Puddle_type.BLUE:
-			modulate = Color(0.3, 0.3, random_color, 0.5)
+			modulate = Color(0.009, 0.127, 0.232, 1.0)
 		Game.Puddle_type.RED:
-			modulate = Color(random_color, 0.2, 0.2, 0.5)
+			modulate = Color(0.339, 0.013, 0.074, 1.0)
 		Game.Puddle_type.RAINBOW:
-			modulate = Color(randf(), randf(), randf(), 0.5)
+			modulate = Color(randf(), randf(), randf(), 1.0)
 	particles.color = modulate
 
 

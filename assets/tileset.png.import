@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://df5udckdw8jq5"
-path="res://.godot/imported/left_sleeve.png-5f228a9abdc108daa92ebabc4cd22af4.ctex"
+uid="uid://bv3l04ihl0oni"
+path="res://.godot/imported/tileset.png-c50288acd069fa293d7940a084811264.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/wizard/left_sleeve.png"
-dest_files=["res://.godot/imported/left_sleeve.png-5f228a9abdc108daa92ebabc4cd22af4.ctex"]
+source_file="res://assets/tileset.png"
+dest_files=["res://.godot/imported/tileset.png-c50288acd069fa293d7940a084811264.ctex"]
 
 [params]
 

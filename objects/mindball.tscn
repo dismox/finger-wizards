@@ -1,0 +1,121 @@
+[gd_scene load_steps=12 format=3 uid="uid://cqnapx26hbrcv"]
+
+[ext_resource type="PackedScene" uid="uid://cy1ggtpnudmp6" path="res://objects/bullet.tscn" id="1_cwprr"]
+[ext_resource type="Texture2D" uid="uid://dwo8dn0iqjl51" path="res://assets/mindball.png" id="2_cuhar"]
+[ext_resource type="Texture2D" uid="uid://1o2f3du4jhq2" path="res://assets/beam.png" id="3_km7bb"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucnj8"]
+atlas = ExtResource("3_km7bb")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2042"]
+atlas = ExtResource("2_cuhar")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w6mwe"]
+atlas = ExtResource("2_cuhar")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oc54k"]
+atlas = ExtResource("2_cuhar")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6uol"]
+atlas = ExtResource("2_cuhar")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60lah"]
+atlas = ExtResource("2_cuhar")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0a2oq"]
+atlas = ExtResource("2_cuhar")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_na2bd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucnj8")
+}],
+"loop": true,
+"name": &"beam",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2042")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6mwe")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2042")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6mwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oc54k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6uol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60lah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0a2oq")
+}],
+"loop": false,
+"name": &"fade",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0a2oq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60lah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6uol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oc54k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w6mwe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2042")
+}],
+"loop": false,
+"name": &"spawn",
+"speed": 24.0
+}]
+
+[node name="Mindball" instance=ExtResource("1_cwprr")]
+puddle_type = 4
+main_color = Color(1, 0, 0.7058824, 1)
+
+[node name="Particle" parent="." index="2"]
+texture = ExtResource("2_cuhar")
+color = Color(0.8745098, 0, 0.41568628, 1)
+
+[node name="Sprite" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_na2bd")
+animation = &"spawn"
+frame = 5
+frame_progress = 1.0
+
+[node name="Light" parent="." index="4"]
+color = Color(1, 0, 0.2509804, 1)
+
+[node name="HitParticle" parent="." index="5"]
+color = Color(1, 0, 0.7058824, 1)
