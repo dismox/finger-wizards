@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dwxkjyw3mjmgk"]
+[gd_scene load_steps=18 format=3 uid="uid://dwxkjyw3mjmgk"]
 
 [ext_resource type="PackedScene" uid="uid://cy1ggtpnudmp6" path="res://objects/bullet.tscn" id="1_7o6fc"]
 [ext_resource type="Texture2D" uid="uid://cpoawa74sv2iy" path="res://assets/test_particle.png" id="2_7lfy7"]
@@ -112,10 +112,19 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_sgtrl"]
+offsets = PackedFloat32Array(0, 0.71875)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cwprr"]
+gradient = SubResource("Gradient_sgtrl")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Fireball" instance=ExtResource("1_7o6fc")]
 puddle_type = 5
 bullet_type = 1
-main_color = Color(0.9372549, 0.21176471, 0, 1)
+main_color = Color(1, 0.13725491, 0.019607844, 1)
 
 [node name="HitboxArea" parent="BulletArea" index="0"]
 visible = false
@@ -128,7 +137,6 @@ texture = ExtResource("2_7lfy7")
 lifetime = 0.5
 preprocess = 0.0
 speed_scale = 0.5
-explosiveness = 0.0
 randomness = 0.0
 lifetime_randomness = 0.0
 local_coords = false
@@ -160,7 +168,9 @@ anim_offset_max = 1.0
 sprite_frames = SubResource("SpriteFrames_icrhl")
 
 [node name="Light" parent="." index="4"]
-color = Color(0.6030346, 0.19703722, 0, 1)
+color = Color(8.013179, 0.31351364, 0, 1)
+energy = 5.0
+texture = SubResource("GradientTexture2D_cwprr")
 
 [node name="HitParticle" parent="." index="5"]
 lifetime_randomness = 0.0

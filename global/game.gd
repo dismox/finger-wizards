@@ -4,7 +4,7 @@ var player: Player
 var bullets_layer: CanvasLayer
 var entities_layer: CanvasLayer
 var ui_layer: CanvasLayer
-
+var current_upgrade = null
 
 enum Puddle_type {
 	SNOW,
@@ -95,6 +95,22 @@ func spawn_entity(scene: PackedScene, position: Vector2 = Vector2.ZERO) -> Entit
 	entity.add_to_group("entities")
 	return entity
 
+func spawn_explosion(pos: Vector2, damage: float, radius: float) -> Explosion:
+	var explosion = load("res://objects/explosion.tscn").instantiate()
+	explosion.global_position = pos
+	explosion.max_damage = damage
+	explosion.radius = radius
+	#explosion.source = self
+	Game.bullets_layer.add_child(explosion)
+	Game.player.camera_rig.shake(0.1, damage * 2)
+	return explosion
+
+func spawn_exp(pos: Vector2, amount: int):
+	var exp_star = load("res://objects/pickup_objects/exp_star/exp_star.tscn").instantiate()
+	exp_star.global_position = pos
+	exp_star.exp_amount = amount
+	add_child(exp_star)
+	
 	
 func spawn_snow(position: Vector2) -> void:
 	var snow = Sprite2D.new()
@@ -109,6 +125,16 @@ func flash_effect(object: Node, color: Color) -> void:
 	await get_tree().create_timer(0.1).timeout
 	if object:
 		object.modulate = Color.WHITE
+
+
+func upgrade_choice():
+	if current_upgrade == null:
+		var scene: PackedScene = load("res://global/upgrades_choise.tscn")
+		current_upgrade = scene.instantiate()
+		Game.ui_layer.add_child(current_upgrade)
+	else:
+		current_upgrade.visible = !current_upgrade.visible
+
 
 func _flash_effect(object: Node, color: Color) -> void:
 	#color = color * 4.0

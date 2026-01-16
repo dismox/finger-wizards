@@ -125,7 +125,6 @@ texture = ExtResource("2_esht2")
 lifetime = 0.35000000000000003
 preprocess = 0.0
 speed_scale = 0.2
-explosiveness = 0.0
 randomness = 0.0
 lifetime_randomness = 0.0
 draw_order = 1
@@ -155,7 +154,7 @@ anim_offset_max = 1.0
 sprite_frames = SubResource("SpriteFrames_tdvya")
 
 [node name="Light" parent="." index="4"]
-color = Color(0, 0.41155484, 0.07245798, 1)
+color = Color(9.144843e-06, 0.8474483, 0.05243197, 1)
 
 [node name="HitParticle" parent="." index="5"]
 color = Color(0, 1, 0, 1)

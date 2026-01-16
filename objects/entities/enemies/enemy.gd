@@ -19,6 +19,9 @@ func _process_ai(delta: float) -> void:
 		# Стоим
 		target_velocity = Vector2.ZERO
 
+func _die() -> void:
+	Game.spawn_exp(global_position, 1)
+	super._die()
 
 #func _on_hitbox_area_area_entered(area: Area2D) -> void:
 #	var bullet = area.get_parent()

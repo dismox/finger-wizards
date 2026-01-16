@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Upgrade" load_steps=6 format=3 uid="uid://l75qwk8vbtry"]
+
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="1_8ppi2"]
+[ext_resource type="Script" uid="uid://0gkyl55yqdti" path="res://upgrades/upgrade.gd" id="2_mdiq3"]
+[ext_resource type="Script" uid="uid://bwrdjqo7sdmd7" path="res://objects/bullet_perks/explode_perk.gd" id="2_nhy6m"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="3_nhy6m"]
+
+[sub_resource type="Resource" id="Resource_oub68"]
+script = ExtResource("2_nhy6m")
+metadata/_custom_type_script = "uid://bwrdjqo7sdmd7"
+
+[resource]
+script = ExtResource("2_mdiq3")
+title = "Взрывные снаряды"
+description = "Снаряды взрываются при попадании и затухании
+-80% скорострельность
++50% урон
++25% дальность
+-50% скорость снаряда"
+perks = Array[ExtResource("1_8ppi2")]([SubResource("Resource_oub68")])
+damage_pct = 50.0
+speed_pct = -50.0
+range_pct = 25.0
+fire_rate_pct = -80.0
+metadata/_custom_type_script = "uid://0gkyl55yqdti"

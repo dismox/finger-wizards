@@ -1,14 +1,39 @@
 extends Entity
 class_name Player
 
+@export var level: int = 1:
+	set(value):
+		Game.upgrade_choice()
+		level = value
+		max_exp = int(pow(level, 1.5))
+		emit_signal("level_changed", level)
+		
+@export var max_exp: int = 10:
+	set(value):
+		max_exp = value
+		emit_signal("max_exp_changed", max_exp)
+
+@export var exp: int = 0:
+	set(value):
+		if value > max_exp:
+			var residue = value - max_exp
+			exp = 0
+			level+= 1
+			exp += residue
+		else:
+			exp = value
+		emit_signal("exp_changed", exp)
+
+
 @export var max_mana = 100.0
 @export var mana_regeneration: float = 0.5
+@export var restore_mana_boost: float = 0.0
 var mana: float:
 	set(value):
 		mana = value
 		emit_signal("mana_changed", mana)
 		
-var restore_mana_boost: float = 0.0
+
 
 #@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var left_hand: Hand = $AnimatedSprite2D/LeftSleeve/LeftHand
@@ -18,6 +43,9 @@ var restore_mana_boost: float = 0.0
 var input_vector: Vector2 = Vector2.ZERO
 
 signal mana_changed(value: float)
+signal level_changed(value: int)
+signal exp_changed(value: int)
+signal max_exp_changed(value: int)
 
 @export var all_upgrades: Array[Upgrade] = []
 
@@ -55,7 +83,7 @@ func _on_hitbox_area_area_entered(area: Area2D) -> void:
 		apply_damage(bullet.damage)
 
 func apply_damage(amount: float) -> void:
-	camera_rig.shake(0.2, amount)
+	camera_rig.shake(0.2, amount * 2)
 	
 	super.apply_damage(amount)
 	

@@ -11,7 +11,7 @@ func on_bullet_shot(bullet: Bullet) -> void:
 	remaining[bullet] = chains
 	hit_targets[bullet] = []
 
-func on_bullet_hit(hand, bullet: Bullet, target: Entity) -> void:
+func on_bullet_hit(hand, bullet: Bullet, target) -> void:
 	if not remaining.has(bullet):
 		remaining[bullet] = chains
 		hit_targets[bullet] = []

@@ -1,0 +1,153 @@
+[gd_scene load_steps=20 format=3 uid="uid://bshsyubvv7m2r"]
+
+[ext_resource type="Texture2D" uid="uid://jxf32ss308np" path="res://assets/explosion/exp1.png" id="1_dgoop"]
+[ext_resource type="Script" uid="uid://c0poc83eus4bb" path="res://objects/explosion.gd" id="1_m0kxi"]
+[ext_resource type="Texture2D" uid="uid://d2mesvyuiluoh" path="res://assets/explosion/exp3.png" id="2_m0kxi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6wl5f"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_af677"]
+atlas = ExtResource("1_dgoop")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m0cr0"]
+atlas = ExtResource("1_dgoop")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ludf"]
+atlas = ExtResource("1_dgoop")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lxolm"]
+atlas = ExtResource("1_dgoop")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnxlj"]
+atlas = ExtResource("1_dgoop")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kagin"]
+atlas = ExtResource("1_dgoop")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jk8t8"]
+atlas = ExtResource("1_dgoop")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nctdv"]
+atlas = ExtResource("1_dgoop")
+region = Rect2(896, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1nw5x"]
+atlas = ExtResource("1_dgoop")
+region = Rect2(1024, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r50ne"]
+atlas = ExtResource("1_dgoop")
+region = Rect2(1152, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jg8eq"]
+atlas = ExtResource("1_dgoop")
+region = Rect2(1280, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6p7iw"]
+atlas = ExtResource("1_dgoop")
+region = Rect2(1408, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_rd4xx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_af677")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m0cr0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0ludf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lxolm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnxlj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kagin")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jk8t8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nctdv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1nw5x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r50ne")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jg8eq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6p7iw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_oost0"]
+particles_animation = true
+particles_anim_h_frames = 8
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Gradient" id="Gradient_dgoop"]
+offsets = PackedFloat32Array(0.45909092, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[node name="Explosion" type="Node2D"]
+script = ExtResource("1_m0kxi")
+
+[node name="ExlposionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExlposionArea"]
+shape = SubResource("CircleShape2D_6wl5f")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
+sprite_frames = SubResource("SpriteFrames_rd4xx")
+frame_progress = 0.801378
+
+[node name="Particles" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_oost0")
+emitting = false
+amount = 10
+texture = ExtResource("2_m0kxi")
+lifetime = 0.29000000000000004
+one_shot = true
+speed_scale = 0.4
+explosiveness = 1.0
+randomness = 1.0
+lifetime_randomness = 1.0
+draw_order = 1
+emission_shape = 1
+emission_sphere_radius = 26.79
+direction = Vector2(0, -1)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_max = 126.87
+angle_min = -720.0
+angle_max = 720.0
+scale_amount_min = 0.5
+color_ramp = SubResource("Gradient_dgoop")
+anim_speed_min = 0.5
+anim_speed_max = 2.0
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="body_entered" from="ExlposionArea" to="." method="_on_exlposion_area_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

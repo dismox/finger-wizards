@@ -42,6 +42,7 @@ func _process_ai(delta: float) -> void:
 	pass
 
 
+
 ## БОЕВАЯ ЛОГИКА
 func apply_damage(amount: float) -> void:
 	Game.flash_effect(sprite, Color(18.892, 18.892, 18.892, 1.0))

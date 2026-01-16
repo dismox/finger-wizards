@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://bbyxink4bfgm6"]
+
+[ext_resource type="PackedScene" uid="uid://c233chmod5v87" path="res://objects/entities/enemies/enemy.tscn" id="1_2dwpc"]
+[ext_resource type="Texture2D" uid="uid://ftwjftxuxlba" path="res://assets/enemies/skeleton.png" id="2_1qjcm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adsna"]
+atlas = ExtResource("2_1qjcm")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_al2rj"]
+atlas = ExtResource("2_1qjcm")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_t8s2o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adsna")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_al2rj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Skeleton" instance=ExtResource("1_2dwpc")]
+move_speed = 100.0
+max_health = 30.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_t8s2o")
+autoplay = "default"
+frame_progress = 0.9238427
+
+[node name="HitboxCollision" parent="HitboxArea" index="0"]
+position = Vector2(-1, 2)
+
+[node name="HitboxCollision" parent="." index="2"]
+position = Vector2(-1, 2)

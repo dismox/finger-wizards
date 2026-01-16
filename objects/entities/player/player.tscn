@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://bnk8kse82y108"]
+[gd_scene load_steps=62 format=3 uid="uid://bnk8kse82y108"]
 
 [ext_resource type="Script" uid="uid://btar5n6xuetpi" path="res://objects/entities/player/player.gd" id="1_4flbx"]
 [ext_resource type="Texture2D" uid="uid://bfs8tjekcbsgw" path="res://assets/shadow.png" id="2_7cdlc"]
@@ -42,6 +42,7 @@
 [ext_resource type="Resource" uid="uid://cftfbechiw50f" path="res://upgrades/stats_upgrade_5.tres" id="33_k6gdf"]
 [ext_resource type="Resource" uid="uid://cc4wutkuefgd5" path="res://upgrades/stats_upgrade_6.tres" id="34_yqtn1"]
 [ext_resource type="Resource" uid="uid://bf4vacc5l20a4" path="res://upgrades/circleshot_upgrade.tres" id="38_xfrni"]
+[ext_resource type="Resource" uid="uid://l75qwk8vbtry" path="res://upgrades/explode_upgrade.tres" id="39_7843a"]
 [ext_resource type="Texture2D" uid="uid://bwu3pou0bngiy" path="res://assets/wizard/_wizard.png" id="40_xfrni"]
 [ext_resource type="Texture2D" uid="uid://biwr4ifaa0bgg" path="res://assets/wizard/_left_sleeve.png" id="41_7843a"]
 [ext_resource type="PackedScene" uid="uid://cy1ggtpnudmp6" path="res://objects/bullet.tscn" id="44_xfrni"]
@@ -197,7 +198,7 @@ _data = {
 z_index = 1
 y_sort_enabled = true
 script = ExtResource("1_4flbx")
-all_upgrades = Array[ExtResource("2_ywlym")]([ExtResource("3_bg3k4"), ExtResource("4_inbqy"), ExtResource("5_ghma6"), ExtResource("3_hv0uu"), ExtResource("4_ynd4r"), ExtResource("8_fmajr"), ExtResource("9_woljv"), ExtResource("10_nid2c"), ExtResource("11_app4b"), ExtResource("5_3vepp"), ExtResource("13_fnena"), ExtResource("14_7i7pc"), ExtResource("30_ghma6"), ExtResource("6_2ikky"), ExtResource("16_xfrni"), ExtResource("17_7843a"), ExtResource("18_o1bp3"), ExtResource("19_jwunf"), ExtResource("20_k6gdf"), ExtResource("21_yqtn1"), ExtResource("23_7i7pc"), ExtResource("7_jkcoh"), ExtResource("8_rq4s4"), ExtResource("9_a5ium"), ExtResource("10_r5uv3"), ExtResource("11_xlyga"), ExtResource("29_xfrni"), ExtResource("30_7843a"), ExtResource("31_o1bp3"), ExtResource("32_jwunf"), ExtResource("33_k6gdf"), ExtResource("34_yqtn1"), ExtResource("27_7r56c"), ExtResource("12_4yvtw"), ExtResource("13_s5f1v"), ExtResource("38_xfrni")])
+all_upgrades = Array[ExtResource("2_ywlym")]([ExtResource("3_bg3k4"), ExtResource("4_inbqy"), ExtResource("5_ghma6"), ExtResource("3_hv0uu"), ExtResource("4_ynd4r"), ExtResource("8_fmajr"), ExtResource("9_woljv"), ExtResource("10_nid2c"), ExtResource("11_app4b"), ExtResource("5_3vepp"), ExtResource("13_fnena"), ExtResource("14_7i7pc"), ExtResource("30_ghma6"), ExtResource("6_2ikky"), ExtResource("16_xfrni"), ExtResource("17_7843a"), ExtResource("18_o1bp3"), ExtResource("19_jwunf"), ExtResource("20_k6gdf"), ExtResource("21_yqtn1"), ExtResource("23_7i7pc"), ExtResource("7_jkcoh"), ExtResource("8_rq4s4"), ExtResource("9_a5ium"), ExtResource("10_r5uv3"), ExtResource("11_xlyga"), ExtResource("29_xfrni"), ExtResource("30_7843a"), ExtResource("31_o1bp3"), ExtResource("32_jwunf"), ExtResource("33_k6gdf"), ExtResource("34_yqtn1"), ExtResource("27_7r56c"), ExtResource("12_4yvtw"), ExtResource("13_s5f1v"), ExtResource("38_xfrni"), ExtResource("39_7843a")])
 
 [node name="TextureRect" type="Sprite2D" parent="."]
 visible = false
@@ -326,6 +327,7 @@ script = ExtResource("6_2hs0m")
 
 [node name="Camera2D" type="Camera2D" parent="CameraRig"]
 position_smoothing_enabled = true
+position_smoothing_speed = 20.0
 editor_draw_limits = true
 editor_draw_drag_margin = true
 

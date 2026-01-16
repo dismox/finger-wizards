@@ -63,7 +63,7 @@ func _physics_process(delta: float) -> void:
 
 func _start_dash(direction: Vector2) -> void:
 	Game.spawn_radial_bullets(bullet_scene, global_position,
-	4, self, 30.0 * scale.x, 100.0 / scale.x, 400.0 * scale.x, randf() * TAU, [])
+	6, self, 30.0 * scale.x, 100.0 / scale.x, 200.0 * scale.x, randf() * TAU, [])
 	
 	phase = "dash"
 	phase_timer = dash_duration
@@ -128,5 +128,6 @@ func _die() -> void:
 			var scene: PackedScene = load("res://objects/entities/enemies/slime/slime.tscn")
 			var new_slime = Game.spawn_entity(scene, global_position + Vector2(10 * i, 10 * i))
 			new_slime.scale = scale / 1.5
+			new_slime.dash_cooldown = dash_cooldown / 2.0
 			new_slime.max_health = max_health/2.0 #clamp(max_health - 40.0, 1.0, max_health - 40.0)
 	super._die()

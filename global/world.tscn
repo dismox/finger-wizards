@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://cmbakut8gi6wr"]
+[gd_scene load_steps=26 format=4 uid="uid://cmbakut8gi6wr"]
 
 [ext_resource type="Script" uid="uid://c6a1khvjfi5gs" path="res://global/game.gd" id="1_0u0vk"]
 [ext_resource type="Script" uid="uid://bfr51lbfudv54" path="res://global/world.gd" id="1_a6aj0"]
@@ -22,6 +22,8 @@
 [ext_resource type="Texture2D" uid="uid://cmksaavx8icax" path="res://assets/icons/multishot_icon.png" id="17_x2fqd"]
 [ext_resource type="Texture2D" uid="uid://lxpvmko2bdul" path="res://assets/icons/spread_icon.png" id="18_e0inb"]
 [ext_resource type="Texture2D" uid="uid://bpmdg41jwpc5n" path="res://assets/icons/mana_icon.png" id="20_x2fqd"]
+[ext_resource type="Texture2D" uid="uid://dslhpvaohn8ia" path="res://assets/icons/star_icon.png" id="21_pmorf"]
+[ext_resource type="Texture2D" uid="uid://c4gnt1kdwqxl5" path="res://assets/level_progress.png" id="22_m1yo3"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_q6ik0"]
 shader = ExtResource("6_fv8ub")
@@ -55,10 +57,10 @@ follow_viewport_enabled = true
 
 [node name="Node" type="Node" parent="World/EntitiesLayer"]
 
-[node name="Player2" parent="World/EntitiesLayer" instance=ExtResource("3_k8ptx")]
-
 [node name="BulletsLayer" type="CanvasLayer" parent="World"]
 follow_viewport_enabled = true
+
+[node name="Player" parent="World" instance=ExtResource("3_k8ptx")]
 
 [node name="UILayer" type="CanvasLayer" parent="."]
 layer = 2
@@ -195,6 +197,7 @@ text = "00"
 horizontal_alignment = 1
 
 [node name="SpreadContainer" type="HBoxContainer" parent="UILayer/UIControl/RightHandStats"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -221,6 +224,8 @@ offset_bottom = 20.0
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
+tooltip_text = "damage"
+theme = ExtResource("13_rut1j")
 
 [node name="DamageTexture" type="TextureRect" parent="UILayer/UIControl/LeftHandStats/DamageContainer"]
 layout_mode = 2
@@ -298,6 +303,7 @@ text = "00"
 horizontal_alignment = 1
 
 [node name="SpreadContainer" type="HBoxContainer" parent="UILayer/UIControl/LeftHandStats"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -326,12 +332,8 @@ offset_right = -3.0
 offset_bottom = -2.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_constants/separation = 0
 alignment = 2
-
-[node name="TextureRect" type="TextureRect" parent="UILayer/UIControl/HealthBarContainer"]
-layout_mode = 2
-texture = ExtResource("16_x2fqd")
-stretch_mode = 3
 
 [node name="HealthBar" type="TextureProgressBar" parent="UILayer/UIControl/HealthBarContainer"]
 unique_name_in_owner = true
@@ -350,6 +352,11 @@ theme = ExtResource("13_rut1j")
 text = "100/100"
 horizontal_alignment = 1
 
+[node name="TextureRect" type="TextureRect" parent="UILayer/UIControl/HealthBarContainer"]
+layout_mode = 2
+texture = ExtResource("16_x2fqd")
+stretch_mode = 3
+
 [node name="ManaBarContainer" type="HBoxContainer" parent="UILayer/UIControl"]
 layout_mode = 1
 anchors_preset = 2
@@ -360,7 +367,12 @@ offset_top = -20.0
 offset_right = 158.0
 offset_bottom = -2.0
 grow_vertical = 0
-theme_override_constants/separation = 4
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="UILayer/UIControl/ManaBarContainer"]
+layout_mode = 2
+texture = ExtResource("20_x2fqd")
+stretch_mode = 3
 
 [node name="ManaBarLabel" type="Label" parent="UILayer/UIControl/ManaBarContainer"]
 unique_name_in_owner = true
@@ -378,11 +390,6 @@ size_flags_vertical = 4
 value = 100.0
 texture_under = ExtResource("10_kshyb")
 texture_progress = ExtResource("11_7n4u8")
-
-[node name="TextureRect" type="TextureRect" parent="UILayer/UIControl/ManaBarContainer"]
-layout_mode = 2
-texture = ExtResource("20_x2fqd")
-stretch_mode = 3
 
 [node name="CharacterSelection" type="Control" parent="UILayer/UIControl"]
 visible = false
@@ -423,6 +430,39 @@ offset_bottom = 40.0
 layout_mode = 2
 theme = ExtResource("13_rut1j")
 text = "Имя"
+horizontal_alignment = 1
+
+[node name="LeveBarContainer" type="HBoxContainer" parent="UILayer/UIControl"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -75.5
+offset_top = -20.0
+offset_right = 75.5
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="UILayer/UIControl/LeveBarContainer"]
+layout_mode = 2
+texture = ExtResource("21_pmorf")
+stretch_mode = 3
+
+[node name="LevelBar" type="TextureProgressBar" parent="UILayer/UIControl/LeveBarContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+value = 100.0
+texture_under = ExtResource("10_kshyb")
+texture_progress = ExtResource("22_m1yo3")
+
+[node name="LevelBarLabel" type="Label" parent="UILayer/UIControl/LeveBarContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("13_rut1j")
+text = "1 lvl"
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="UILayer"]

@@ -1,8 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://cqnapx26hbrcv"]
+[gd_scene load_steps=15 format=3 uid="uid://cqnapx26hbrcv"]
 
 [ext_resource type="PackedScene" uid="uid://cy1ggtpnudmp6" path="res://objects/bullet.tscn" id="1_cwprr"]
 [ext_resource type="Texture2D" uid="uid://dwo8dn0iqjl51" path="res://assets/mindball.png" id="2_cuhar"]
 [ext_resource type="Texture2D" uid="uid://1o2f3du4jhq2" path="res://assets/beam.png" id="3_km7bb"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cwprr"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ucnj8"]
 atlas = ExtResource("3_km7bb")
@@ -100,11 +106,21 @@ animations = [{
 "speed": 24.0
 }]
 
+[sub_resource type="Gradient" id="Gradient_sgtrl"]
+offsets = PackedFloat32Array(0, 0.71875)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cwprr"]
+gradient = SubResource("Gradient_sgtrl")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
 [node name="Mindball" instance=ExtResource("1_cwprr")]
 puddle_type = 4
 main_color = Color(1, 0, 0.7058824, 1)
 
 [node name="Particle" parent="." index="2"]
+material = SubResource("CanvasItemMaterial_cwprr")
 texture = ExtResource("2_cuhar")
 color = Color(0.8745098, 0, 0.41568628, 1)
 
@@ -115,7 +131,9 @@ frame = 5
 frame_progress = 1.0
 
 [node name="Light" parent="." index="4"]
-color = Color(1, 0, 0.2509804, 1)
+color = Color(8.013594, 0, 0.47511354, 1)
+energy = 5.0
+texture = SubResource("GradientTexture2D_cwprr")
 
 [node name="HitParticle" parent="." index="5"]
 color = Color(1, 0, 0.7058824, 1)

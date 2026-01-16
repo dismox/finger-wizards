@@ -106,16 +106,14 @@ animations = [{
 "speed": 24.0
 }]
 
-[sub_resource type="Gradient" id="Gradient_v8qja"]
-offsets = PackedFloat32Array(0, 0.6473214)
-colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+[sub_resource type="Gradient" id="Gradient_sgtrl"]
+offsets = PackedFloat32Array(0, 0.71875)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_t4vbm"]
-gradient = SubResource("Gradient_v8qja")
-use_hdr = true
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_0n3kk"]
+gradient = SubResource("Gradient_sgtrl")
 fill = 1
 fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0, 0)
 
 [sub_resource type="Curve" id="Curve_4agyf"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.15999998, 1), 0.0, 0.0, 0, 0, Vector2(0.77199996, 0), 0.0, 0.0, 0, 0]
@@ -125,7 +123,7 @@ point_count = 3
 top_level = true
 z_index = 20
 script = ExtResource("1_3ndsa")
-main_color = Color(0.32941177, 0.23529412, 0.54901963, 1)
+main_color = Color(0.29803923, 0, 1, 1)
 
 [node name="TextureRect" type="Sprite2D" parent="."]
 visible = false
@@ -178,12 +176,9 @@ autoplay = "spawn"
 
 [node name="Light" type="PointLight2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(1.7881393e-07, 1.1920929e-07)
-scale = Vector2(0.9375, 0.9375)
-color = Color(0, 0, 1, 1)
-energy = 8.52
-texture = SubResource("GradientTexture2D_t4vbm")
-texture_scale = 0.2
+scale = Vector2(1.609375, 1.609375)
+color = Color(0.29803923, 0, 1, 1)
+texture = SubResource("GradientTexture2D_0n3kk")
 
 [node name="HitParticle" type="CPUParticles2D" parent="."]
 z_index = 17
