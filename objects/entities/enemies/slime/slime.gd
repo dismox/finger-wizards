@@ -1,133 +1,101 @@
 extends Enemy
 class_name SlimeEnemy
 
-@export var dash_speed: float = 350.0
-@export var dash_duration: float = 0.25
-@export var slide_duration: float = 0.35
-@export var dash_cooldown: float = 1.8
+@export var dash_speed := 350.0
+@export var dash_duration := 0.25
+var dash_timer := 0.0
+var dash_dir := Vector2.ZERO
 
-@export var contact_damage: float = 20.0
-@export var bounce_force: float = 150.0        # сила отскока
+@export var bounce_force: float = 350.0
 
-var phase: String = "cooldown"                     # idle → dash → slide → cooldown
-var phase_timer: float = 0.0
-var dash_direction: Vector2 = Vector2.ZERO
+var size: int = 3:
+	set(value):
+		if value < 1:
+			size = 1
+		else:
+			size = value
+		update_size()
 
 func _ready() -> void:
-	super._ready()
+	update_size()
 
-func _init() -> void:
-	agro_range = 1000.0
-	friction = 1.0
+func update_size() -> void:
+	scale = Vector2(size / 2.0, size / 2.0)
+
+	bullet_speed = 300.0 / size
+	bullet_damage = 10.0 * size
+	attack_cooldown = size
+	bullet_range = 100.0 * size
+	contact_damage = size
+	max_health = 20 * size
+	health = max_health
+
+
+
+func attack(dir: Vector2) -> void:
+	#Game.flash_effect(self, Color(4.877, 12.413, 0.0, 1.0))
+	radial_shoot(dir, 5)
+	await get_tree().create_timer(0.25).timeout
+	one_shot_particles($Particles)
+	dash_dir = dir
+	dash_timer = dash_duration
+	velocity = dash_dir * dash_speed
+	#shoot(dir)
+
+	
 
 func _process_ai(delta: float) -> void:
-	if Game.player == null:
-		target_velocity = Vector2.ZERO
-		return
+	super._process_ai(delta)
 
-	var to_player := Game.player.global_position - global_position
-	var dist := to_player.length()
+	if dash_timer > 0:
+		dash_timer -= delta
+		target_velocity = dash_dir
 
-	phase_timer -= delta
 
-	match phase:
-		"idle":
-			if dist <= agro_range:
-				_start_dash(to_player.normalized())
+func apply_damage(amount: float) -> void:
+	Game.spawn_paddle(global_position, Game.Puddle_type.GREEN, Vector2(0.5, scale.x))
+	one_shot_particles($Particles, int(amount / 10))
+	super.apply_damage(amount)
+	
 
-		"dash":
-			# активно летим вперёд
-			target_velocity = dash_direction
+func _die() -> void:
+	if size > 1:
+		for i in range (size):
+			var slime_scene: PackedScene = load("res://objects/entities/enemies/slime/slime.tscn")
+			var new_slime = Game.spawn_entity(slime_scene.duplicate(), global_position + Vector2(10 * i, 10 * i))
+			new_slime.size = size - 1
+	super._die()
 
-			if phase_timer <= 0.0:
-				_start_slide()
-
-		"slide":
-			# замедленное скольжение
-			# используем interpolation на понижение скорости
-			velocity = velocity.lerp(Vector2.ZERO, delta * (1.0 / slide_duration))
-			target_velocity = Vector2.ZERO
-
-			if phase_timer <= 0.0:
-				_start_cooldown()
-
-		"cooldown":
-			target_velocity = Vector2.ZERO
-			if phase_timer <= 0.0:
-				phase = "idle"
 
 
 func _physics_process(delta: float) -> void:
 	super._physics_process(delta)
-	_process_collisions()
+	_process_slime_collisions()
 
-func _start_dash(direction: Vector2) -> void:
-	Game.spawn_radial_bullets(bullet_scene, global_position,
-	6, self, 30.0 * scale.x, 100.0 / scale.x, 200.0 * scale.x, randf() * TAU, [])
-	
-	phase = "dash"
-	phase_timer = dash_duration
-	dash_direction = direction
-	velocity = direction * dash_speed
-	
-	
+func _process_slime_collisions() -> void:
+	if state != State.ATTACK:
+		return
 
-func _start_slide() -> void:
-	phase = "slide"
-	phase_timer = slide_duration
-	# скорость остаётся от рывка → затем плавно затухает
-
-
-func _start_cooldown() -> void:
-	phase = "cooldown"
-	phase_timer = dash_cooldown
-
-
-func _bounce_from(body: Node) -> void:
-	# направление отскока — от точки столкновения
-	var away = (global_position - body.global_position).normalized()
-
-	# моментальный толчок от объекта
-	velocity = away * bounce_force
-
-	# переводим слизня в фазу скольжения, чтобы выглядело естественно
-	phase = "slide"
-	phase_timer = slide_duration
-
-
-func _process_collisions() -> void:
 	for i in range(get_slide_collision_count()):
-		var collision := get_slide_collision(i)
-		var collider := collision.get_collider()
+		var col := get_slide_collision(i)
+		var collider := col.get_collider()
 
-		if collider is Entity:
-			_handle_entity_collision(collider, collision.get_normal())
+		# Отскакиваем от всего твёрдого
+		if collider is TileMap or collider is Entity:
+			_bounce(col.get_normal())
 
+func _bounce(normal: Vector2) -> void:
+	velocity = normal.normalized() * bounce_force
 
-func _handle_entity_collision(entity: Entity, normal: Vector2) -> void:
-	# Урон игроку
-	if entity is Player:
-		entity.apply_damage(contact_damage)
+	# ВАЖНО: корректно встраиваемся в FSM
+	state = State.ATTACK   # или отдельное SLIDE / RECOVER
+	attack_timer = attack_cooldown * 0.5
 
-	# Отскок
-	var bounce_dir := normal.normalized()
-	velocity = bounce_dir * bounce_force
-
-	# Переходим в скольжение
-	phase = "slide"
-	phase_timer = slide_duration
-
-
-func apply_damage(amount: float) -> void:
-	super.apply_damage(amount)
-	Game.spawn_paddle(global_position, Game.Puddle_type.GREEN, Vector2(0.5, scale.x))
-
-func _die() -> void:
-	if max_health > 15.0:
-		for i in range (2):
-			var scene: PackedScene = load("res://objects/entities/enemies/slime/slime.tscn")
-			var new_slime = Game.spawn_entity(scene, global_position + Vector2(10 * i, 10 * i))
-			new_slime.scale = scale / 1.5
-			new_slime.dash_cooldown = dash_cooldown / 2.0
-			new_slime.max_health = max_health/2.0 #clamp(max_health - 40.0, 1.0, max_health - 40.0)
-	super._die()
+func one_shot_particles(particles: CPUParticles2D, amount: int = -1) -> void:
+	var new_particles: CPUParticles2D = particles.duplicate(true)
+	particles.add_child(new_particles)
+	if amount > 0:
+		new_particles.amount = amount
+	new_particles.emitting = true
+	await new_particles.finished
+	new_particles.queue_free()

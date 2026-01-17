@@ -14,7 +14,9 @@ point_count = 3
 
 [node name="Enemy" type="CharacterBody2D"]
 z_index = 2
+safe_margin = 2.0
 script = ExtResource("1_btura")
+contact_damage = 1.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 
@@ -39,3 +41,5 @@ spread = 47.01
 initial_velocity_min = 179.11
 initial_velocity_max = 253.73
 scale_amount_curve = SubResource("Curve_ctifb")
+
+[node name="ShootPoint" type="Marker2D" parent="."]
