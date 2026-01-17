@@ -6,7 +6,7 @@ class_name PiercingPerk
 
 var hit_counter := {}
 
-func on_bullet_hit(hand, bullet: Bullet, target: Entity) -> void:
+func on_bullet_hit(hand, bullet: Bullet, target) -> void:
 	if not hit_counter .has(bullet):
 		hit_counter [bullet] = 0
 

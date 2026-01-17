@@ -93,20 +93,6 @@ func _process_shooting() -> void:
 			shoot()
 
 
-func spawn_bullet(start_position: Vector2 = bullet_point.global_position) -> Bullet:
-	var bullet = bullet_scene.instantiate()
-	bullet.global_position = start_position
-	bullet.rotation = (get_global_mouse_position() - global_position + Vector2(0, randf_range(-spread - float(multishot), spread + float(multishot)))).angle() #+ Vector2(0, randf_range(-spread, spread)).angle()
-	
-	bullet.trajectory_modifiers = trajectory_modifiers.duplicate()
-	
-	#get_tree().current_scene.add_child(bullet)
-	Game.bullets_layer.add_child(bullet)
-	bullet.init(player, damage, speed, range)
-	bullet.particle.emitting = true
-	
-	return bullet
-
 func calculate_mana_cost() -> float:
 	var cost: float = 0.0
 	cost += damage 
