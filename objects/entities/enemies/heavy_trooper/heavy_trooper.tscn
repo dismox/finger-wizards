@@ -1,0 +1,67 @@
+[gd_scene load_steps=12 format=3 uid="uid://tpgcpiryxohc"]
+
+[ext_resource type="PackedScene" uid="uid://c233chmod5v87" path="res://objects/entities/enemies/enemy.tscn" id="1_bodtv"]
+[ext_resource type="Script" uid="uid://sbmct7ytvqt4" path="res://objects/entities/enemies/heavy_trooper/heavy_trooper.gd" id="2_8asd5"]
+[ext_resource type="PackedScene" uid="uid://cium8l2ebgj7c" path="res://objects/enemy_bullet.tscn" id="3_1ve8v"]
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="4_1ve8v"]
+[ext_resource type="Texture2D" uid="uid://crjhm35xiinjs" path="res://assets/enemies/heavy_trooper/heavy_trooper.png" id="4_mbwio"]
+[ext_resource type="Script" uid="uid://crv127sfuq7yf" path="res://objects/bullet_perks/random_stats_perk.gd" id="5_mbwio"]
+
+[sub_resource type="Resource" id="Resource_dw2so"]
+script = ExtResource("5_mbwio")
+metadata/_custom_type_script = "uid://crv127sfuq7yf"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dw2so"]
+atlas = ExtResource("4_mbwio")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_soy62"]
+atlas = ExtResource("4_mbwio")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8vmss"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dw2so")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_soy62")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x4qgi"]
+height = 28.0
+
+[node name="HeavyTrooper" instance=ExtResource("1_bodtv")]
+script = ExtResource("2_8asd5")
+agro_range = 1000.0
+attack_range = 100.0
+retreat_range = 20.0
+attack_cooldown = 3.0
+contact_damage = 0.0
+bullet_scene = ExtResource("3_1ve8v")
+bullet_speed = 120.0
+bullet_range = 100.0
+bullet_spread = 0.3
+bullet_multishot = 5
+perks = Array[ExtResource("4_1ve8v")]([SubResource("Resource_dw2so")])
+move_speed = 80.0
+acceleration = 2.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_8vmss")
+autoplay = "default"
+
+[node name="HitboxCollision" parent="HitboxArea" index="0"]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_x4qgi")
+
+[node name="HitboxCollision" parent="." index="2"]
+position = Vector2(0, 8)
+
+[node name="ShootPoint" parent="." index="4"]
+position = Vector2(-13, 3)

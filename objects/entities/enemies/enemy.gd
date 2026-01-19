@@ -37,7 +37,10 @@ var wander_dir := Vector2.ZERO
 @export var bullet_damage: float = 10.0
 @export var bullet_speed: float = 200.0
 @export var bullet_range: float = 300.0
+@export var bullet_spread: float = 0.0
+@export var bullet_multishot: int = 0
 @export var trajectory_modifiers: Array[TrajectoryModifier] = []
+@export var perks: Array[BulletPerk] = []
 
 
 
@@ -98,10 +101,16 @@ func _process_contacts() -> void:
 		if collider is Player:
 			collider.apply_damage(contact_damage)
 
-func _update_sprite_flip() -> void:
-	if abs(velocity.x) < 1.0:
-		return
-	sprite.flip_h = velocity.x > 0
+func _update_sprite_flip(dir: Vector2 = Vector2.ZERO) -> void:
+	if velocity.x != 0:
+		if abs(velocity.x) < 1.0:
+			return
+		sprite.flip_h = velocity.x > 0
+	else:
+		if abs(dir.x) < 1.0:
+			return
+		sprite.flip_h = dir.x > 0
+
 
 
 func _process_wander(delta: float) -> void:
@@ -130,21 +139,33 @@ func _process_attack(dir: Vector2) -> void:
 		attack(dir)
 
 func attack(dir: Vector2) -> void:
+	_update_sprite_flip(dir)
 	pass
 
 
 func shoot(dir: Vector2) -> void:
 	for point in shoot_points:
-		Game.spawn_bullet(
-			bullet_scene,
-			point.global_position,
-			dir.angle(),
-			self,
-			bullet_damage,
-			bullet_speed,
-			bullet_range,
-			trajectory_modifiers
-		)
+		for i in range (1 + bullet_multishot):
+			dir = dir + Vector2(randf_range(-bullet_spread, bullet_spread), randf_range(-bullet_spread, bullet_spread))
+
+			var bullet: Bullet = Game.spawn_bullet(
+				bullet_scene,
+				point.global_position,
+				dir.angle(),
+				self,
+				bullet_damage,
+				bullet_speed,
+				bullet_range,
+				trajectory_modifiers
+			)
+
+			for perk in perks:
+				perk.on_shoot(self, bullet)
+			
+			bullet.hit.connect(_on_bullet_hit)
+			bullet.faded.connect(_on_bullet_fade)
+			bullet.flight_tick.connect(_on_bullet_flight)
+
 
 func radial_shoot(dir: Vector2, count: int) -> void:
 	for point in shoot_points:
@@ -159,6 +180,19 @@ func radial_shoot(dir: Vector2, count: int) -> void:
 			dir.angle(),
 			trajectory_modifiers
 		)
+
+
+func _on_bullet_hit(bullet: Bullet, target):
+	for perk in perks:
+		perk.on_bullet_hit(self, bullet, target)
+
+func _on_bullet_fade(bullet: Bullet):
+	for perk in perks:
+		perk.on_bullet_fade(self, bullet)
+
+func _on_bullet_flight(bullet: Bullet, delta):
+	for perk in perks:
+		perk.on_bullet_flight(self, bullet, delta)
 #########################################################
 
 

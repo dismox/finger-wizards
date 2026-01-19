@@ -1,0 +1,58 @@
+[gd_scene load_steps=9 format=3 uid="uid://djt8lh142inj4"]
+
+[ext_resource type="PackedScene" uid="uid://c233chmod5v87" path="res://objects/entities/enemies/enemy.tscn" id="1_xh2xv"]
+[ext_resource type="Script" uid="uid://r34u4ih3cslw" path="res://objects/entities/enemies/trooper/trooper.gd" id="2_5snro"]
+[ext_resource type="PackedScene" uid="uid://cium8l2ebgj7c" path="res://objects/enemy_bullet.tscn" id="3_23ptx"]
+[ext_resource type="Texture2D" uid="uid://ddwu4ex74pghp" path="res://assets/enemies/trooper/trooper.png" id="4_b13pk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a463x"]
+atlas = ExtResource("4_b13pk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7tfy"]
+atlas = ExtResource("4_b13pk")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ekudl"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a463x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7tfy")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1an5p"]
+height = 28.0
+
+[node name="Trooper" instance=ExtResource("1_xh2xv")]
+script = ExtResource("2_5snro")
+agro_range = 1000.0
+attack_cooldown = 3.0
+contact_damage = 0.0
+bullet_scene = ExtResource("3_23ptx")
+bullet_damage = 15.0
+bullet_range = 500.0
+move_speed = 100.0
+acceleration = 5.0
+max_health = 60.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_ekudl")
+autoplay = "default"
+frame_progress = 0.87689495
+
+[node name="HitboxCollision" parent="HitboxArea" index="0"]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_1an5p")
+
+[node name="HitboxCollision" parent="." index="2"]
+position = Vector2(0, 8)
+
+[node name="ShootPoint" parent="." index="4"]
+position = Vector2(-13, 3)

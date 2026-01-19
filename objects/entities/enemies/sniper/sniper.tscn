@@ -1,0 +1,74 @@
+[gd_scene load_steps=15 format=3 uid="uid://chc7ljlj05rgy"]
+
+[ext_resource type="PackedScene" uid="uid://c233chmod5v87" path="res://objects/entities/enemies/enemy.tscn" id="1_g14vy"]
+[ext_resource type="Script" uid="uid://b5ep4uu2ms6x4" path="res://objects/entities/enemies/sniper/sniper.gd" id="2_g14vy"]
+[ext_resource type="PackedScene" uid="uid://cium8l2ebgj7c" path="res://objects/enemy_bullet.tscn" id="3_voty7"]
+[ext_resource type="Texture2D" uid="uid://bokyqpiq3nlbl" path="res://assets/enemies/sniper/sniper.png" id="4_407pn"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="4_voty7"]
+[ext_resource type="Script" uid="uid://bhnrrhykeue2f" path="res://modifiers/trajectory_modifiers/trajectory_speed_decay.gd" id="5_407pn"]
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="6_r2qfq"]
+[ext_resource type="Script" uid="uid://d137cran0rsth" path="res://objects/bullet_perks/decreasing_damage_on_flight_perk.gd" id="7_igabg"]
+
+[sub_resource type="Resource" id="Resource_r2qfq"]
+script = ExtResource("5_407pn")
+metadata/_custom_type_script = "uid://bhnrrhykeue2f"
+
+[sub_resource type="Resource" id="Resource_ywa2k"]
+script = ExtResource("7_igabg")
+metadata/_custom_type_script = "uid://d137cran0rsth"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r2qfq"]
+atlas = ExtResource("4_407pn")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_igabg"]
+atlas = ExtResource("4_407pn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ywa2k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r2qfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_igabg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_3wydi"]
+height = 28.0
+
+[node name="Sniper" instance=ExtResource("1_g14vy")]
+script = ExtResource("2_g14vy")
+agro_range = 1000.0
+attack_range = 300.0
+retreat_range = 150.0
+attack_cooldown = 5.0
+contact_damage = 0.0
+bullet_scene = ExtResource("3_voty7")
+bullet_damage = 25.0
+bullet_speed = 50.0
+trajectory_modifiers = Array[ExtResource("4_voty7")]([SubResource("Resource_r2qfq")])
+perks = Array[ExtResource("6_r2qfq")]([SubResource("Resource_ywa2k")])
+move_speed = 100.0
+acceleration = 2.0
+max_health = 50.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_ywa2k")
+autoplay = "default"
+frame_progress = 0.23215112
+
+[node name="HitboxCollision" parent="HitboxArea" index="0"]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_3wydi")
+
+[node name="HitboxCollision" parent="." index="2"]
+position = Vector2(0, 8)
+
+[node name="ShootPoint" parent="." index="4"]
+position = Vector2(-13, 3)

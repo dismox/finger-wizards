@@ -32,6 +32,10 @@ func process(delta: float, bullet: Bullet) -> Vector2:
 func _find_target(bullet: Bullet) -> Entity:
 	var best: Entity = null
 	var best_dist := acquire_radius
+	
+	if bullet.source == null or bullet.source is Enemy:
+		best = Game.player
+		return best
 
 	for e in bullet.get_tree().get_nodes_in_group(target_group):
 		if not e is Entity:

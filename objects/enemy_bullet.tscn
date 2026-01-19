@@ -1,0 +1,107 @@
+[gd_scene load_steps=11 format=3 uid="uid://cium8l2ebgj7c"]
+
+[ext_resource type="PackedScene" uid="uid://cy1ggtpnudmp6" path="res://objects/bullet.tscn" id="1_uol34"]
+[ext_resource type="Texture2D" uid="uid://1o2f3du4jhq2" path="res://assets/beam.png" id="2_agd58"]
+[ext_resource type="Texture2D" uid="uid://coyyx6p16jqfs" path="res://assets/red_bullet.png" id="3_4qqwk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucnj8"]
+atlas = ExtResource("2_agd58")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7ihg"]
+atlas = ExtResource("3_4qqwk")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_manyc"]
+atlas = ExtResource("3_4qqwk")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ll2au"]
+atlas = ExtResource("3_4qqwk")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_toajh"]
+atlas = ExtResource("3_4qqwk")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehhbw"]
+atlas = ExtResource("3_4qqwk")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1c3r8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucnj8")
+}],
+"loop": true,
+"name": &"beam",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7ihg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7ihg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_manyc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ll2au")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_toajh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehhbw")
+}],
+"loop": false,
+"name": &"fade",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehhbw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_toajh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ll2au")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_manyc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7ihg")
+}],
+"loop": false,
+"name": &"spawn",
+"speed": 24.0
+}]
+
+[node name="EnemyBullet" instance=ExtResource("1_uol34")]
+puddle_type = 5
+main_color = Color(0.69973856, 0, 0.11315138, 1)
+
+[node name="HitboxArea" parent="BulletArea" index="0"]
+visible = false
+
+[node name="Particle" parent="." index="2"]
+color = Color(0.23137255, 1, 0, 1)
+
+[node name="Sprite" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_1c3r8")
+
+[node name="Light" parent="." index="4"]
+color = Color(0, 1, 0.09019608, 1)
+
+[node name="HitParticle" parent="." index="5"]
+color = Color(0, 1, 0.09019608, 1)

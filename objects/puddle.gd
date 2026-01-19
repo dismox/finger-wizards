@@ -14,7 +14,7 @@ func initiate(_type: Game.Puddle_type, min_scale: float = 0.5) -> void:
 		Game.Puddle_type.BLACK:
 			modulate = Color(0.0, 0.0, 0.0, 0.3)
 		Game.Puddle_type.GREEN:
-			modulate = Color(0.0, 0.094, 0.043, 1.0)
+			modulate = Color(0.042, 0.161, 0.0, 1.0)
 		Game.Puddle_type.BLUE:
 			modulate = Color(0.009, 0.127, 0.232, 1.0)
 		Game.Puddle_type.RED:
@@ -25,7 +25,7 @@ func initiate(_type: Game.Puddle_type, min_scale: float = 0.5) -> void:
 
 
 func _on_puddle_area_area_entered(area: Area2D) -> void:
-	particles.emitting = true
+	#particles.emitting = true
 	if area.get_parent() is Bullet:
 		var bullet: Bullet = area.get_parent()
 		if bullet.bullet_type == Game.Bullet_type.FIRE and type == Game.Puddle_type.SNOW:

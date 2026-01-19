@@ -1,0 +1,145 @@
+[gd_scene load_steps=16 format=3 uid="uid://csteypnkruojt"]
+
+[ext_resource type="PackedScene" uid="uid://cy1ggtpnudmp6" path="res://objects/bullet.tscn" id="1_yi8md"]
+[ext_resource type="Texture2D" uid="uid://cpoawa74sv2iy" path="res://assets/test_particle.png" id="2_y1a8c"]
+[ext_resource type="Texture2D" uid="uid://1o2f3du4jhq2" path="res://assets/beam.png" id="3_ek3pu"]
+[ext_resource type="Texture2D" uid="uid://biynbv34ttkpm" path="res://assets/rocket.png" id="4_c1t7e"]
+[ext_resource type="Texture2D" uid="uid://btfbmyclmbph0" path="res://assets/manaball.png" id="5_fg2u2"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_icrhl"]
+particles_animation = true
+particles_anim_h_frames = 2
+particles_anim_v_frames = 2
+particles_anim_loop = true
+
+[sub_resource type="Curve" id="Curve_yi8md"]
+_data = [Vector2(0, 0.35993207), 0.0, 0.0, 0, 0, Vector2(0.48799998, 0.63582337), 0.0, 0.0, 0, 0, Vector2(0.98399997, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Gradient" id="Gradient_1v1nl"]
+offsets = PackedFloat32Array(0, 0.29464287, 0.4642857, 0.72321427, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0.95526904, 0.6907688, 0, 1, 0.20872948, 0.24736568, 0.24072549, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ucnj8"]
+atlas = ExtResource("3_ek3pu")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4bfn3"]
+atlas = ExtResource("4_c1t7e")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8j8h6"]
+atlas = ExtResource("4_c1t7e")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e5emy"]
+atlas = ExtResource("4_c1t7e")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h0pa3"]
+atlas = ExtResource("5_fg2u2")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s5ucw"]
+atlas = ExtResource("4_c1t7e")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vnidt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ucnj8")
+}],
+"loop": true,
+"name": &"beam",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4bfn3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8j8h6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e5emy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8j8h6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h0pa3")
+}],
+"loop": false,
+"name": &"fade",
+"speed": 24.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s5ucw")
+}],
+"loop": false,
+"name": &"spawn",
+"speed": 24.0
+}]
+
+[node name="Rocket" instance=ExtResource("1_yi8md")]
+puddle_type = 5
+bullet_type = 1
+main_color = Color(0.33, 0.33, 0.33, 1)
+
+[node name="HitboxArea" parent="BulletArea" index="0"]
+visible = false
+
+[node name="Particle" parent="." index="2"]
+z_index = 0
+material = SubResource("CanvasItemMaterial_icrhl")
+position = Vector2(-3, 0)
+amount = 20
+texture = ExtResource("2_y1a8c")
+lifetime = 0.5
+preprocess = 0.0
+speed_scale = 0.5
+randomness = 0.0
+lifetime_randomness = 0.0
+local_coords = false
+draw_order = 1
+spread = 52.94
+gravity = Vector2(0, -50)
+initial_velocity_max = 58.82
+angular_velocity_min = 0.0
+angular_velocity_max = 0.0
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.1
+linear_accel_min = -26.46
+linear_accel_max = 30.89
+radial_accel_min = 0.0
+radial_accel_max = 0.0
+tangential_accel_min = 0.0
+tangential_accel_max = 0.0
+damping_min = 94.853
+damping_max = 94.853
+scale_amount_max = 1.0
+scale_amount_curve = SubResource("Curve_yi8md")
+color = Color(1, 1, 1, 1)
+color_ramp = SubResource("Gradient_1v1nl")
+anim_speed_min = 3.0
+anim_speed_max = 3.0
+anim_offset_max = 1.0
+
+[node name="Sprite" parent="." index="3"]
+sprite_frames = SubResource("SpriteFrames_vnidt")
+frame_progress = 0.8651906
+
+[node name="Light" parent="." index="4"]
+visible = false
+
+[node name="HitParticle" parent="." index="5"]
+scale_amount_min = 1.0
+scale_amount_max = 1.0
+color = Color(0.17641899, 0.17641914, 0.17641908, 1)

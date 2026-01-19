@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://bnk8kse82y108"]
+[gd_scene load_steps=63 format=3 uid="uid://bnk8kse82y108"]
 
 [ext_resource type="Script" uid="uid://btar5n6xuetpi" path="res://objects/entities/player/player.gd" id="1_4flbx"]
 [ext_resource type="Texture2D" uid="uid://bfs8tjekcbsgw" path="res://assets/shadow.png" id="2_7cdlc"]
@@ -49,7 +49,7 @@
 [ext_resource type="Texture2D" uid="uid://blaimj6k38wfd" path="res://assets/wizard/_right_sleeve.png" id="45_o1bp3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b26j0"]
-radius = 11.0
+radius = 10.049875
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jwunf"]
 atlas = ExtResource("40_xfrni")
@@ -194,6 +194,10 @@ _data = {
 &"idle": SubResource("Animation_bwjto")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7843a"]
+radius = 9.0
+height = 28.0
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 1
 y_sort_enabled = true
@@ -332,5 +336,6 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 
 [node name="HitboxCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
-shape = SubResource("CircleShape2D_b26j0")
+position = Vector2(0, 6)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_7843a")

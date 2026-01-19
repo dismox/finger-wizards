@@ -1,0 +1,71 @@
+[gd_scene load_steps=15 format=3 uid="uid://bjtjck8emnwn2"]
+
+[ext_resource type="PackedScene" uid="uid://c233chmod5v87" path="res://objects/entities/enemies/enemy.tscn" id="1_4hfnj"]
+[ext_resource type="Script" uid="uid://chhew4b7vmicl" path="res://objects/entities/enemies/rocket_trooper/rocket_trooper.gd" id="2_4hfnj"]
+[ext_resource type="PackedScene" uid="uid://csteypnkruojt" path="res://objects/rocket.tscn" id="3_4hfnj"]
+[ext_resource type="Script" uid="uid://h0knc5jcbduu" path="res://modifiers/trajectory_modifiers/trajectory_modifier.gd" id="4_bn1xg"]
+[ext_resource type="Script" uid="uid://mqjqs3ifop4o" path="res://objects/bullet_perks/bullet_perk.gd" id="4_dt6t2"]
+[ext_resource type="Texture2D" uid="uid://pqsxvwpn25c6" path="res://assets/enemies/rocket_trooper/rocket_trooper.png" id="4_j83kl"]
+[ext_resource type="Script" uid="uid://b5mes01e7m7x6" path="res://modifiers/trajectory_modifiers/trajectory_homing.gd" id="5_bn1xg"]
+[ext_resource type="Script" uid="uid://bwrdjqo7sdmd7" path="res://objects/bullet_perks/explode_perk.gd" id="5_j83kl"]
+
+[sub_resource type="Resource" id="Resource_h2c4c"]
+script = ExtResource("5_bn1xg")
+metadata/_custom_type_script = "uid://b5mes01e7m7x6"
+
+[sub_resource type="Resource" id="Resource_bn1xg"]
+script = ExtResource("5_j83kl")
+metadata/_custom_type_script = "uid://bwrdjqo7sdmd7"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bn1xg"]
+atlas = ExtResource("4_j83kl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h2c4c"]
+atlas = ExtResource("4_j83kl")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7v7k8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bn1xg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h2c4c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_454xj"]
+height = 28.0
+
+[node name="RocketTrooper" instance=ExtResource("1_4hfnj")]
+script = ExtResource("2_4hfnj")
+agro_range = 1000.0
+attack_range = 400.0
+attack_cooldown = 4.0
+contact_damage = 0.0
+bullet_scene = ExtResource("3_4hfnj")
+bullet_damage = 30.0
+bullet_speed = 120.0
+bullet_range = 600.0
+trajectory_modifiers = Array[ExtResource("4_bn1xg")]([SubResource("Resource_h2c4c")])
+perks = Array[ExtResource("4_dt6t2")]([SubResource("Resource_bn1xg")])
+move_speed = 50.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_7v7k8")
+autoplay = "default"
+
+[node name="HitboxCollision" parent="HitboxArea" index="0"]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_454xj")
+
+[node name="HitboxCollision" parent="." index="2"]
+position = Vector2(0, 8)
+
+[node name="ShootPoint" parent="." index="4"]
+position = Vector2(-13, 3)

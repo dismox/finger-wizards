@@ -131,8 +131,10 @@ frame = 5
 frame_progress = 1.0
 
 [node name="Light" parent="." index="4"]
+position = Vector2(0, -9.536743e-07)
+scale = Vector2(0.375, 0.375)
 color = Color(8.013594, 0, 0.47511354, 1)
-energy = 5.0
+energy = 3.0
 texture = SubResource("GradientTexture2D_cwprr")
 
 [node name="HitParticle" parent="." index="5"]

@@ -1,0 +1,70 @@
+[gd_scene load_steps=10 format=3 uid="uid://cotf3fwo0toka"]
+
+[ext_resource type="PackedScene" uid="uid://c233chmod5v87" path="res://objects/entities/enemies/enemy.tscn" id="1_3bfl8"]
+[ext_resource type="Script" uid="uid://b7ult41ct34ax" path="res://objects/entities/enemies/guard/guard.gd" id="2_s0r6p"]
+[ext_resource type="Texture2D" uid="uid://nfq6dhv7csgy" path="res://assets/enemies/guard/guard.png" id="2_ut0e4"]
+[ext_resource type="PackedScene" uid="uid://cium8l2ebgj7c" path="res://objects/enemy_bullet.tscn" id="3_s0r6p"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s0r6p"]
+atlas = ExtResource("2_ut0e4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5g1ly"]
+atlas = ExtResource("2_ut0e4")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8qo6v"]
+atlas = ExtResource("2_ut0e4")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8qo6v"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s0r6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5g1ly")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8qo6v")
+}],
+"loop": true,
+"name": &"hit",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1an5p"]
+height = 28.0
+
+[node name="Guard" instance=ExtResource("1_3bfl8")]
+script = ExtResource("2_s0r6p")
+agro_range = 1000.0
+attack_range = 200.0
+retreat_range = 100.0
+contact_damage = 0.0
+bullet_scene = ExtResource("3_s0r6p")
+bullet_damage = 20.0
+bullet_spread = 0.3
+move_speed = 100.0
+max_health = 40.0
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_8qo6v")
+animation = &"hit"
+autoplay = "default"
+
+[node name="HitboxCollision" parent="HitboxArea" index="0"]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_1an5p")
+
+[node name="HitboxCollision" parent="." index="2"]
+position = Vector2(0, 8)
+
+[node name="ShootPoint" parent="." index="4"]
+position = Vector2(-13, 3)
