@@ -13,7 +13,7 @@ metadata/_custom_type_script = "uid://dex3oholff34w"
 script = ExtResource("2_ge7e6")
 title = "Орбита"
 description = "Снаряды движутся по орбите вокруг мага
-+100% дальности"
++200% дальности"
 trajectory_modifiers = Array[ExtResource("3_lvabp")]([SubResource("Resource_lvabp")])
-range_pct = 100.0
+range_pct = 200.0
 metadata/_custom_type_script = "uid://0gkyl55yqdti"

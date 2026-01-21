@@ -13,9 +13,9 @@ metadata/_custom_type_script = "uid://50wvymc4bt7l"
 script = ExtResource("2_c8aiq")
 title = "Спираль"
 description = "Снаряды закручиваются в спираль
-+50% дальность
++150% дальность
 +10% скорострельность"
 trajectory_modifiers = Array[ExtResource("3_th721")]([SubResource("Resource_th721")])
-range_pct = 50.0
+range_pct = 150.0
 fire_rate_pct = 10.0
 metadata/_custom_type_script = "uid://0gkyl55yqdti"

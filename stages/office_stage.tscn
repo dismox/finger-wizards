@@ -14,7 +14,7 @@ offset_left = 168.0
 offset_top = -169.0
 offset_right = 1800.0
 offset_bottom = 1325.0
-color = Color(0.051055238, 0.08521364, 0.112214126, 1)
+color = Color(0.04993587, 0.085606225, 0.11874621, 1)
 
 [node name="PlayerSpawn" type="Marker2D" parent="."]
 position = Vector2(1007, 563)
@@ -36,3 +36,8 @@ position = Vector2(1479, 625)
 
 [node name="EnemySpawn4" type="Marker2D" parent="."]
 position = Vector2(1008, 1044)
+
+[node name="SpawnTimer" type="Timer" parent="."]
+
+[node name="WaveTimer" type="Timer" parent="."]
+wait_time = 10.0

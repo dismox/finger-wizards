@@ -5,10 +5,10 @@ class_name Player
 	set(value):
 		Game.upgrade_choice()
 		level = value
-		max_exp = int(pow(level, 1.5))
+		max_exp = max_exp + int(pow(level, 1.5))
 		emit_signal("level_changed", level)
 		
-@export var max_exp: int = 10:
+@export var max_exp: int = 5:
 	set(value):
 		max_exp = value
 		emit_signal("max_exp_changed", max_exp)

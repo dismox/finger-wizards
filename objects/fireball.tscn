@@ -113,7 +113,7 @@ animations = [{
 }]
 
 [sub_resource type="Gradient" id="Gradient_sgtrl"]
-offsets = PackedFloat32Array(0, 0.71875)
+offsets = PackedFloat32Array(0, 0.47368422)
 colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
 
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_cwprr"]
@@ -130,7 +130,7 @@ main_color = Color(1, 0.13725491, 0.019607844, 1)
 visible = false
 
 [node name="Particle" parent="." index="2"]
-z_index = 0
+z_index = -4
 material = SubResource("CanvasItemMaterial_icrhl")
 amount = 20
 texture = ExtResource("2_7lfy7")
@@ -168,7 +168,9 @@ anim_offset_max = 1.0
 sprite_frames = SubResource("SpriteFrames_icrhl")
 
 [node name="Light" parent="." index="4"]
-color = Color(8.013179, 0.31351364, 0, 1)
+position = Vector2(4.7683716e-07, 1.1920929e-06)
+scale = Vector2(0.5, 0.5)
+color = Color(7.988015, 0.6930761, 7.6214244e-05, 1)
 energy = 5.0
 texture = SubResource("GradientTexture2D_cwprr")
 

@@ -129,7 +129,7 @@ func _process_chase(dir: Vector2) -> void:
 	target_velocity = dir
 
 func _process_retreat(dir: Vector2) -> void:
-	target_velocity = -dir
+	target_velocity = -dir - Vector2(randf(), randf())
 
 
 func _process_attack(dir: Vector2) -> void:
